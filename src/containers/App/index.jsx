@@ -1,8 +1,8 @@
-import './styles.pcss';
+import styles from './styles.pcss';
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.main}>
       <header className="App-header">
         тут будет проект
       </header>
