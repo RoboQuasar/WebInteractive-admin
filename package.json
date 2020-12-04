@@ -10,6 +10,7 @@
     "postcss": "^8.1.14",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },
@@ -20,6 +21,8 @@
     "start-js": "react-scripts start",
     "build-js": "react-scripts build",
     "build": "npm-run-all build:css build-js",
+    "lint": "eslint src/**/*.js*",
+    "lint:fix": "eslint --fix src/**/*.js*",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
@@ -28,6 +31,12 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint"
+    }
   },
   "browserslist": {
     "production": [
@@ -43,6 +52,9 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.0.4",
+    "eslint": "^7.14.0",
+    "eslint-plugin-react": "^7.21.5",
+    "husky": "^4.3.0",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^8.3.0",
     "postcss-import": "^13.0.0",
