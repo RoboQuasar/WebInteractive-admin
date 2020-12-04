@@ -8,12 +8,13 @@ import {
 import AuthPage from 'pages/AuthPage';
 import MainPage from 'pages/MainPage';
 import ProfilePage from 'pages/ProfilePage';
-
+ergsdgbsg;
 import styles from './styles.module.scss';
 
 function App() {
   return (
     <main className={styles.main}>
+      <div className={styles.header}>Лолала</div>
       <Router>
         <Switch>
           <Route path="/auth">
