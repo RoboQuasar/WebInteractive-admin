@@ -23,5 +23,5 @@ yarn-error.log*
 .eslintcache
 .stylelintcache
 .vscode
-./idea
+.idea
 jsconfig.json
