@@ -1,5 +1,5 @@
 # WebInteractive-admin
-Приложение для управление виджетами, созднными через WebInteractive-widget
+Приложение для управления виджетами, созднными через WebInteractive-widget
 React-SPA, с использованием SCSS, PostCSS, Css-Modules.
 
 ## Запуск проекта локально
