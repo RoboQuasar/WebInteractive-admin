@@ -8,13 +8,14 @@ import {
 import AuthPage from 'pages/AuthPage';
 import MainPage from 'pages/MainPage';
 import ProfilePage from 'pages/ProfilePage';
-ergsdgbsg;
+import NavMenu from "components/NavMenu";
+
 import styles from './styles.module.scss';
+
 
 function App() {
   return (
     <main className={styles.main}>
-      <div className={styles.header}>Лолала</div>
       <Router>
         <Switch>
           <Route path="/auth">
@@ -23,6 +24,7 @@ function App() {
 
           <Route path="/main">
             <MainPage />
+            <NavMenu />
           </Route>
 
           <Route path="/profile">

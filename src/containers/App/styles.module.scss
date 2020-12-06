@@ -1,10 +1,15 @@
 @import "../../styles/css-vars.scss";
 
 .main {
-  padding: 10px;
+  //padding: 10px;
   background-color: var(--periwinkle);
 
   & .header {
     background-color: $titanWhite;
   }
+}
+
+.main2{ 
+  padding: 10px;
+  background-color:$buttonStyle;
 }
