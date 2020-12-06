@@ -14,7 +14,7 @@ function NavButton(props) {
 
 NavButton.propTypes = {
     // ...prop type definitions here
-    children: PropTypes.string
+    children: PropTypes.node
   }
 
 
