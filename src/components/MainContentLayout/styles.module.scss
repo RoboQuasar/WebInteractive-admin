@@ -2,6 +2,7 @@
 
 .main {
   display: flex;
+  overflow: auto;
 
   & .header {
     background-color: $titanWhite;
