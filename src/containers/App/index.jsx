@@ -8,7 +8,7 @@ import {
 import AuthPage from 'pages/AuthPage';
 import MainPage from 'pages/MainPage';
 import ProfilePage from 'pages/ProfilePage';
-import NavMenu from "components/NavMenu";
+
 
 import styles from './styles.module.scss';
 
@@ -24,7 +24,6 @@ function App() {
 
           <Route path="/main">
             <MainPage />
-            <NavMenu />
           </Route>
 
           <Route path="/profile">
