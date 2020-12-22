@@ -9,7 +9,6 @@ import AuthPage from 'pages/AuthPage';
 import MainPage from 'pages/MainPage';
 import ProfilePage from 'pages/ProfilePage';
 
-
 import styles from './styles.module.scss';
 
 

@@ -1,13 +1,20 @@
 import React from 'react';
+import LeftSideLayout from 'components/LeftSideLayout';
 import NavMenu from 'components/LeftMenu';
+import MainContentLayout from 'components/MainContentLayout';
+import Logo from 'components/Logo';
 
 const MainPage = () => {
-  return(
-    <div>
-      <h1>тут будет MainPage</h1>
-      <NavMenu />
-    </div>
-  )
-};
+  return (
+    <React.Fragment>
+      <LeftSideLayout>
+        <Logo/>
+
+        <NavMenu/>
+      </LeftSideLayout>
+      <MainContentLayout>Тут будет MainContent</MainContentLayout>
+    </React.Fragment>
+  );
+}
 
 export default MainPage;
