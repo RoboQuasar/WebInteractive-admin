@@ -8,11 +8,8 @@ import {
 import AuthPage from 'pages/AuthPage';
 import MainPage from 'pages/MainPage';
 import ProfilePage from 'pages/ProfilePage';
-// import Widgets from "pages/Widgets";
-
 
 import styles from './styles.module.scss';
-
 
 
 function App() {
