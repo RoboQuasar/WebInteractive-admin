@@ -1,5 +1,7 @@
 module.exports = {
   "env": {
+      "amd": true,
+      "node": true,
       "browser": true,
       "es2021": true
   },
@@ -11,8 +13,9 @@ module.exports = {
       "ecmaFeatures": {
           "jsx": true
       },
-      "ecmaVersion": 12,
-      "sourceType": "module"
+      "sourceType": "module",
+      "allowImportExportEverywhere": true,
+      "ecmaVersion": 12
   },
   "plugins": [
       "react"

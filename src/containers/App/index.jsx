@@ -11,6 +11,7 @@ import ProfilePage from 'pages/ProfilePage';
 
 import styles from './styles.module.scss';
 
+
 function App() {
   return (
     <main className={styles.main}>
