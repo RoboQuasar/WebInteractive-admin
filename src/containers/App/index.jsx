@@ -8,9 +8,11 @@ import {
 import AuthPage from 'pages/AuthPage';
 import MainPage from 'pages/MainPage';
 import ProfilePage from 'pages/ProfilePage';
+// import Widgets from "pages/Widgets";
 
 
 import styles from './styles.module.scss';
+
 
 
 function App() {
@@ -29,6 +31,10 @@ function App() {
           <Route path="/profile">
             <ProfilePage />
           </Route>
+{/* 
+          <Route path="/widgets">
+            <Widgets />
+          </Route> */}
         </Switch>
       </Router>
     </main>

@@ -29,19 +29,28 @@
     .navLink{
         text-decoration: none; 
         text-align: center;
-        line-height: 55px;
+        box-sizing: border-box;
+        padding: 15px;
+        line-height: 25px;
         font-family: Roboto;
         font-style: normal;
         font-weight: bold;
         font-size: 20px;
     }
 
+    .twoLines{
+        padding:0px 15px 0px 15px;
+    }
+
     a,
     a:visited{
+        display: inline-block;
+        height: 100%;
+        width: 100%;
         color:black;
     }
 
-    li:hover{
+    a:hover{
         background-color: $borderColor;
         color:white;
     }
