@@ -8,15 +8,14 @@ import {
 import AuthPage from 'pages/AuthPage';
 import MainPage from 'pages/MainPage';
 import ProfilePage from 'pages/ProfilePage';
-import Title from 'components/Title';
+
 
 import styles from './styles.module.scss';
+
 
 function App() {
   return (
     <main className={styles.main}>
-      <Title><h1>тут будет title</h1></Title>
-
       <Router>
         <Switch>
           <Route path="/auth">

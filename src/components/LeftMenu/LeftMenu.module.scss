@@ -1,0 +1,48 @@
+@import "../../styles/css-vars.scss";
+
+.navMenu{
+    height: 900px;
+    width: 200px;
+    background-color: $leftMenuBackgroundColor;
+    border: 1px solid $borderColor;
+    border-width: 0px 1px 1px 1px;
+
+    ul{
+        padding: 0;
+    }
+
+    li{
+        list-style-type: none;
+        height: 55px;
+        text-align: center;
+        margin-top: 0px;
+    }
+
+    li.bottomLink{
+        margin-top: 100px;
+    }
+    
+    ul:first-child{
+       padding-top: 72px;
+    }
+
+    .navLink{
+        text-decoration: none; 
+        text-align: center;
+        line-height: 55px;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    a,
+    a:visited{
+        color:black;
+    }
+
+    li:hover{
+        background-color: $borderColor;
+        color:white;
+    }
+}
