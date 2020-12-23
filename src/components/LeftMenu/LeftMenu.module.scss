@@ -3,13 +3,11 @@
 .navMenu{
     height: 900px;
     width: 200px;
-    background-color: $leftMenuBackgroundColor;
-    border: 1px solid $borderColor;
-    border-width: 0px 1px 1px 1px;
+    background-color: $titanWhite;
+    border-right: solid 1px var(--melrose);
+    padding: 0;
 
-    ul{
-        padding: 0;
-    }
+
 
     li{
         list-style-type: none;
@@ -51,7 +49,7 @@
     }
 
     a:hover{
-        background-color: $borderColor;
+        background-color: var(--melrose);
         color:white;
     }
 }
