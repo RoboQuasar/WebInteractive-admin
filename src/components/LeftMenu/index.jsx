@@ -1,18 +1,44 @@
 import React from 'react';
-import NavLink from '../NavLink';
+//import { useState } from 'react';
+import NavigLink from '../NavLink';
 
 import styles from '../LeftMenu/LeftMenu.module.scss';
 
 function NavMenu() {
+ //   const [ActiveLink, setActiveLink] = useState(false);
+    // function handleClick() {
+    //     setActiveLink(!ActiveLink)
+       
+    //     console.log('По ссылке кликнули.');
+    //     console.log(ActiveLink);
+    //   }
+    
     return (
                 <ul className={styles.navMenu}>
-                    <li><NavLink className={styles.navLink} hrefLink="/widgets">Виджеты</NavLink></li>
-                    <li><NavLink className={styles.navLink} hrefLink="/elements">Элементы</NavLink></li>
-                    <li><NavLink className={styles.navLink + " " + styles.twoLines} hrefLink="/effects">Анимации и эффекты</NavLink></li>
-                    <li><NavLink className={styles.navLink} hrefLink="/models">3D Модели</NavLink></li>
+
+                    <li><NavigLink className={styles.navLink} activeClassName={styles.activeLink} hrefLink ="/widgets">
+                        Виджеты
+                        </NavigLink></li>
+
+                    <li><NavigLink className={styles.navLink} activeClassName={styles.activeLink} hrefLink="/elements">
+                        Элементы
+                        </NavigLink></li>
+
+                    <li><NavigLink className={styles.navLink + " " + styles.twoLines} activeClassName={styles.activeLink} hrefLink="/effects">
+                        Анимации и эффекты
+                        </NavigLink></li>
+
+                    <li><NavigLink className={styles.navLink} activeClassName={styles.activeLink} hrefLink="/models">
+                        3D Модели
+                        </NavigLink></li>
                     
-                    <li className={styles.bottomLink}><NavLink className={styles.navLink} hrefLink="/stat">Статистика</NavLink></li>
-                    <li className={styles.bottomLink}><NavLink className={styles.navLink} hrefLink="/help">Помощь</NavLink></li>
+                    <li className={styles.bottomLink}><NavigLink className={styles.navLink} activeClassName={styles.activeLink} hrefLink="/stat">
+                        Статистика
+                        </NavigLink></li>
+
+                    <li className={styles.bottomLink}><NavigLink className={styles.navLink} activeClassName={styles.activeLink} hrefLink="/help">
+                        Помощь
+                        </NavigLink></li>
                 </ul>
             )
 }
