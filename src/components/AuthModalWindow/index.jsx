@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 import ModalWindow from 'components/ModalWindow';
 
-const AuthModalWindow = ({ children }) => {
+const AuthModalWindow = () => {
   return (
     <ModalWindow className = {styles.AuthModalWindow} />
   );
