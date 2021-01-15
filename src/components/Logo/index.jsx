@@ -8,6 +8,7 @@ import NavLink from 'components/NavLink';
 
 const Logo = () => {
   return (
+    //подозреваю что тут много тегов и неясно, нужен ли NavLink именно тут.
     <div className={styles.imageContainer}>
       <NavLink hrefLink="/main">
       <WebInteractiveLogo />

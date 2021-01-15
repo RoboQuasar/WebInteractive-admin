@@ -1,0 +1,27 @@
+@import "../../styles/css-vars.scss";
+
+//не забыть поменять стили
+
+.rightLogBar {
+  padding: 0;
+  width: auto;
+  max-width: 191px;
+  min-width: 100px;
+  height: 693px;
+  border-bottom: solid 1px var(--melrose);
+  border-left: solid 1px var(--melrose);
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+
+  li{
+    list-style-type: none;
+  }
+
+  li:last-child{
+    padding-top: 545px;
+    
+    //это надо как то высчитывать
+  }
+}

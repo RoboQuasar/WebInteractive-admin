@@ -6,7 +6,9 @@ import {
 
 function NavigLink(props) {
     return (
-        <NavLink className={props.className} to = {props.hrefLink} activeClassName={props.activeClassName}>{props.children}</NavLink>
+        <NavLink className={props.className} to = {props.hrefLink} activeClassName={props.activeClassName}>
+          {props.children}
+        </NavLink>
         )
 }
 

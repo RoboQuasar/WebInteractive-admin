@@ -25,7 +25,7 @@ function App() {
     <main className={styles.main}>
       <Router>
         <Switch>
-          <Route path="/auth">
+          <Route exact path="/auth">
             <AuthPage />
           </Route>
 

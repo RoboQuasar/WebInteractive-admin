@@ -1,0 +1,11 @@
+@import "../../styles/css-vars.scss";
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  height: 58px;
+  padding: 15px;
+  background-color: var(--periwinkle);
+  box-sizing: border-box;
+}

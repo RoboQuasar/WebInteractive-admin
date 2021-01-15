@@ -1,0 +1,15 @@
+@import "../../styles/css-vars.scss";
+
+//не забыть изменить стили
+
+.rightSide {
+  width: auto;
+  // max-width: 191px;
+  // min-width: 100px;
+  border-bottom: solid 1px var(--melrose);
+  border-left: solid 1px var(--melrose);
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
