@@ -2,15 +2,15 @@ import React from 'react';
 import LeftSideLayout from "components/LeftSideLayout";
 import MainContentLayout from "components/MainContentLayout";
 import Logo from 'components/Logo';
-import NavMenu from 'components/LeftMenu';
+import LeftMenu from 'components/LeftMenu';
 
 const HelpPage = () => {
   return (
     <React.Fragment>
        <LeftSideLayout>
         <Logo />
-        
-        <NavMenu />
+
+        <LeftMenu />
       </LeftSideLayout>
       <MainContentLayout>Тут будет HelpPage</MainContentLayout>
     </React.Fragment>
