@@ -6,14 +6,13 @@ import NavMenu from 'components/LeftMenu';
 
 import styles from '../WidgetsPage/Widgets.module.scss'
 
-
 const Widgets = () => {
     return (
         <React.Fragment >
         {/* <h1 className = {styles.widgetsMenu}>nenen</h1> */}
         <LeftSideLayout>
          <Logo />
-         
+
          <NavMenu className = {styles.widgetsMenu}/>
        </LeftSideLayout>
        <MainContentLayout>Тут будет WidgetsPage</MainContentLayout>

@@ -7,25 +7,23 @@
     border-right: solid 1px var(--melrose);
     padding: 0;
 
+    // .leftMenuLi{
+    //     list-style-type: none;
+    //     height: 55px;
+    //     text-align: center;
+    //     margin-top: 0px;
+    // }
 
-
-    li{
-        list-style-type: none;
-        height: 55px;
-        text-align: center;
-        margin-top: 0px;
-    }
-
-    li.bottomLink{
+    .bottomLink{
         margin-top: 100px;
     }
-    
-    ul:first-child{
+
+    .navMenu:first-child{
        padding-top: 72px;
     }
 
     .navLink{
-        text-decoration: none; 
+        text-decoration: none;
         text-align: center;
         box-sizing: border-box;
         padding: 15px;
@@ -38,6 +36,7 @@
 
     .twoLines{
         padding:0px 15px 0px 15px;
+        height: 55px;
     }
 
     a,
@@ -53,8 +52,8 @@
         color:white;
     }
 
-    .activeLink{
+    a.activeLink{
         background-color: var(--melrose);
-        
+        color:white;
     }
 }
