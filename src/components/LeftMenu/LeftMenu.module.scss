@@ -3,46 +3,57 @@
 .navMenu{
     height: 900px;
     width: 200px;
-    background-color: $leftMenuBackgroundColor;
-    border: 1px solid $borderColor;
-    border-width: 0px 1px 1px 1px;
+    background-color: $titanWhite;
+    border-right: solid 1px var(--melrose);
+    padding: 0;
 
-    ul{
-        padding: 0;
-    }
+    // .leftMenuLi{
+    //     list-style-type: none;
+    //     height: 55px;
+    //     text-align: center;
+    //     margin-top: 0px;
+    // }
 
-    li{
-        list-style-type: none;
-        height: 55px;
-        text-align: center;
-        margin-top: 0px;
-    }
-
-    li.bottomLink{
+    .bottomLink{
         margin-top: 100px;
     }
-    
-    ul:first-child{
+
+    .navMenu:first-child{
        padding-top: 72px;
     }
 
     .navLink{
-        text-decoration: none; 
+        text-decoration: none;
         text-align: center;
-        line-height: 55px;
+        box-sizing: border-box;
+        padding: 15px;
+        line-height: 25px;
         font-family: Roboto;
         font-style: normal;
         font-weight: bold;
         font-size: 20px;
     }
 
+    .twoLines{
+        padding:0px 15px 0px 15px;
+        height: 55px;
+    }
+
     a,
     a:visited{
+        display: inline-block;
+        height: 100%;
+        width: 100%;
         color:black;
     }
 
-    li:hover{
-        background-color: $borderColor;
+    a:hover{
+        background-color: var(--melrose);
+        color:white;
+    }
+
+    a.activeLink{
+        background-color: var(--melrose);
         color:white;
     }
 }

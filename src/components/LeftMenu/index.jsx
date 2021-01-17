@@ -1,23 +1,39 @@
 import React from 'react';
-import NavLink from '../NavLink';
+
+import NavigationLink from '../NavigationLink';
 
 import styles from '../LeftMenu/LeftMenu.module.scss';
-//Мне не нравится как тут прописан путь, но по другому компонент не видет файл стилей.
 
-function NavMenu() {
-    return (
-        <div className={styles.navMenu}>
-            <ul>
-            <NavLink className = {styles.navLink} hrefLink = {"#"}><li>Виджеты</li></NavLink>
-            <NavLink className = {styles.navLink} hrefLink = {"#"}><li>Элементы</li></NavLink>
-            <NavLink className = {styles.navLink} hrefLink = {"#"}><li>Анимации<br />и эффекты</li></NavLink>
-            {/* При переносе строки изза свойства "line-height" текст накладывается на нижний элемент списка. */}
-            <NavLink className = {styles.navLink} hrefLink = {"#"}><li>3D Модели</li></NavLink>
-            <NavLink className = {styles.navLink} hrefLink = {"#"}><li className = {styles.bottomLink}>Статистика</li></NavLink>
-            <NavLink className = {styles.navLink} hrefLink = {"#"}><li className = {styles.bottomLink}>Помощь</li></NavLink>
-            </ul>
-        </div>
-    )
+function LeftMenu() {
+  return (
+    <ul className={styles.navMenu}>
+
+      <li ><NavigationLink className={styles.navLink} activeClassName={styles.activeLink} hrefLink="/widgets">
+        Виджеты
+                        </NavigationLink></li>
+
+      <li><NavigationLink className={styles.navLink} activeClassName={styles.activeLink} hrefLink="/elements">
+        Элементы
+                        </NavigationLink></li>
+
+      <li><NavigationLink className={`${styles.navLink} ${styles.twoLines}`} activeClassName={styles.activeLink} hrefLink="/effects">
+        Анимации и эффекты
+                        </NavigationLink></li>
+
+      <li><NavigationLink className={styles.navLink} activeClassName={styles.activeLink} hrefLink="/models">
+        3D Модели
+                        </NavigationLink></li>
+
+      <li className={styles.bottomLink}><NavigationLink className={styles.navLink} activeClassName={styles.activeLink} hrefLink="/stat">
+        Статистика
+                        </NavigationLink></li>
+
+      <li className={styles.bottomLink}><NavigationLink className={styles.navLink} activeClassName={styles.activeLink} hrefLink="/help">
+        Помощь
+                        </NavigationLink></li>
+    </ul>
+    //это автоматическое форматирование, не знаю насколько оно удобно.
+  )
 }
 
-export default NavMenu;
+export default LeftMenu;

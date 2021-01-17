@@ -1,19 +1,20 @@
 import React from 'react';
 import LeftSideLayout from "components/LeftSideLayout";
 import MainContentLayout from "components/MainContentLayout";
-import LeftMenu from 'components/LeftMenu';
 import Logo from 'components/Logo';
+import LeftMenu from 'components/LeftMenu';
 
-const AuthPage = () => {
+const StatPage = () => {
   return (
     <React.Fragment>
-      <LeftSideLayout>
+       <LeftSideLayout>
         <Logo />
+
         <LeftMenu />
       </LeftSideLayout>
-      <MainContentLayout>Тут будет MainContent</MainContentLayout>
+      <MainContentLayout>Тут будет StatPage</MainContentLayout>
     </React.Fragment>
   )
 };
 
-export default AuthPage;
+export default StatPage;

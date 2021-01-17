@@ -1,6 +1,6 @@
 import React from 'react';
 import LeftSideLayout from 'components/LeftSideLayout';
-import NavMenu from 'components/LeftMenu';
+import LeftMenu from 'components/LeftMenu';
 import MainContentLayout from 'components/MainContentLayout';
 import Logo from 'components/Logo';
 
@@ -10,8 +10,9 @@ const MainPage = () => {
       <LeftSideLayout>
         <Logo/>
 
-        <NavMenu/>
+        <LeftMenu/>
       </LeftSideLayout>
+
       <MainContentLayout>Тут будет MainContent</MainContentLayout>
     </React.Fragment>
   );
