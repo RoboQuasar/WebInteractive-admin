@@ -14,4 +14,24 @@ code {
 
 ul{
   margin: 0;
+  padding: 0;
 }
+
+a,
+a:visited{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    color:black;
+}
+
+a:hover{
+    background-color: var(--melrose);
+    color:white;
+}
+
+a.activeLink{
+    background-color: var(--melrose);
+    color:white;
+}
+

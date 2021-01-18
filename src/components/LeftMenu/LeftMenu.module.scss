@@ -6,6 +6,7 @@
     background-color: $titanWhite;
     border-right: solid 1px var(--melrose);
     padding: 0;
+<<<<<<< HEAD
 
 
 
@@ -15,17 +16,26 @@
         text-align: center;
         margin-top: 0px;
     }
+=======
 
-    li.bottomLink{
+    // .leftMenuLi{
+    //     list-style-type: none;
+    //     height: 55px;
+    //     text-align: center;
+    //     margin-top: 0px;
+    // }
+>>>>>>> 9a67092c2636b5eb2219e80e6673fc3714ea9bf2
+
+    .bottomLink{
         margin-top: 100px;
     }
-    
-    ul:first-child{
+
+    .navMenu:first-child{
        padding-top: 72px;
     }
 
     .navLink{
-        text-decoration: none; 
+        text-decoration: none;
         text-align: center;
         box-sizing: border-box;
         padding: 15px;
@@ -38,6 +48,10 @@
 
     .twoLines{
         padding:0px 15px 0px 15px;
+<<<<<<< HEAD
+=======
+        height: 55px;
+>>>>>>> 9a67092c2636b5eb2219e80e6673fc3714ea9bf2
     }
 
     a,
@@ -50,6 +64,14 @@
 
     a:hover{
         background-color: var(--melrose);
+<<<<<<< HEAD
+=======
+        color:white;
+    }
+
+    a.activeLink{
+        background-color: var(--melrose);
+>>>>>>> 9a67092c2636b5eb2219e80e6673fc3714ea9bf2
         color:white;
     }
 

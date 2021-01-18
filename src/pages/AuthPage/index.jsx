@@ -1,14 +1,18 @@
-import ModalWindow from 'components/ModalWindow';
+//import ModalWindow from 'components/ModalWindow';
 import React from 'react';
-
-
+import LeftSideLayout from "components/LeftSideLayout";
+import MainContentLayout from "components/MainContentLayout";
+import LeftMenu from 'components/LeftMenu';
+import Logo from 'components/Logo';
 
 const AuthPage = () => {
   return (
     <React.Fragment>
-      <ModalWindow>
-        <h1>Ulalala</h1>
-      </ModalWindow>
+      <LeftSideLayout>
+        <Logo />
+        <LeftMenu />
+      </LeftSideLayout>
+      <MainContentLayout>Тут будет MainContent</MainContentLayout>
     </React.Fragment>
   )
 };

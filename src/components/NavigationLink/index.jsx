@@ -4,19 +4,17 @@ import {
        NavLink
   } from "react-router-dom";
 
-function NavigLink(props) {
+function NavigationLink(props) {
     return (
-        <NavLink className={props.className} to = {props.hrefLink} activeClassName={props.activeClassName}>
-          {props.children}
-        </NavLink>
+        <NavLink className={props.className} to = {props.hrefLink} activeClassName={props.activeClassName}>{props.children}</NavLink>
         )
 }
 
-NavigLink.propTypes = {
+NavigationLink.propTypes = {
     children: PropTypes.node,
     className: PropTypes.node,
     hrefLink: PropTypes.node,
     activeClassName: PropTypes.string,
   }
 
-  export default NavigLink;
+  export default NavigationLink;
