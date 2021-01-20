@@ -8,11 +8,9 @@ import styles from './styles.module.scss';
 
 const Logo = () => {
   return (
-    <div className={styles.imageContainer}>
-      <NavigationLink hrefLink="/main">
+      <NavigationLink className={styles.imageContainer} hrefLink="/main">
         <WebInteractiveLogo />
       </NavigationLink>
-    </div>
   );
 };
 

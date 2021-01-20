@@ -6,25 +6,6 @@
     background-color: $titanWhite;
     border-right: solid 1px var(--melrose);
     padding: 0;
-<<<<<<< HEAD
-
-
-
-    li{
-        list-style-type: none;
-        height: 55px;
-        text-align: center;
-        margin-top: 0px;
-    }
-=======
-
-    // .leftMenuLi{
-    //     list-style-type: none;
-    //     height: 55px;
-    //     text-align: center;
-    //     margin-top: 0px;
-    // }
->>>>>>> 9a67092c2636b5eb2219e80e6673fc3714ea9bf2
 
     .bottomLink{
         margin-top: 100px;
@@ -47,36 +28,12 @@
     }
 
     .twoLines{
-        padding:0px 15px 0px 15px;
-<<<<<<< HEAD
-=======
+        padding: 0px 15px 0px 15px;
         height: 55px;
->>>>>>> 9a67092c2636b5eb2219e80e6673fc3714ea9bf2
-    }
-
-    a,
-    a:visited{
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        color:black;
-    }
-
-    a:hover{
-        background-color: var(--melrose);
-<<<<<<< HEAD
-=======
-        color:white;
-    }
-
-    a.activeLink{
-        background-color: var(--melrose);
->>>>>>> 9a67092c2636b5eb2219e80e6673fc3714ea9bf2
-        color:white;
     }
 
     .activeLink{
-        background-color: var(--melrose);
-        
-    }
+      background-color: var(--melrose);
+      color:white;
+  }
 }

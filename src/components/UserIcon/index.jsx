@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {ReactComponent as WebInteractiveUserIcon} from 'icons/user icon.svg';
+import {ReactComponent as WebInteractiveUserIcon} from 'icons/user_icon.svg';
 //Ого, ты прям тут создал компонент <WebInteractiveLogo> с картинкой?
 
 import styles from './styles.module.scss';
@@ -8,11 +8,8 @@ import styles from './styles.module.scss';
 
 const UserIcon = () => {
   return (
-    <div className={styles.imageContainer}>
-      
-      <WebInteractiveUserIcon />
-      
-    </div>
+    <WebInteractiveUserIcon className={styles.imageContainer}/>
+    //перенести стили с иконки на родительский тег
   );
 };
 

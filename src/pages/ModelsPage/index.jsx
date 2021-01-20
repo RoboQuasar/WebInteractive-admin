@@ -3,6 +3,9 @@ import LeftSideLayout from "components/LeftSideLayout";
 import MainContentLayout from "components/MainContentLayout";
 import Logo from 'components/Logo';
 import LeftMenu from 'components/LeftMenu';
+import RightLogBar from 'components/RightLogBar';
+import RightSideLayout from 'components/RightSideLayout';
+
 
 const ModelsPage = () => {
   return (
@@ -13,6 +16,10 @@ const ModelsPage = () => {
         <LeftMenu />
       </LeftSideLayout>
       <MainContentLayout>Тут будет ModelsPage</MainContentLayout>
+      <RightSideLayout>
+        <RightLogBar />
+      </RightSideLayout>
+
     </React.Fragment>
   )
 };
