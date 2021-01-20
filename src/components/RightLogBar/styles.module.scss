@@ -4,6 +4,7 @@
 
 .rightLogBar {
   padding: 0;
+  margin: 0;
   width: auto;
   max-width: 191px;
   min-width: 100px;
@@ -17,11 +18,8 @@
 
   li{
     list-style-type: none;
-  }
-
-  li:last-child{
-    padding-top: 545px;
-
-    //это надо как то высчитывать
+    &:last-child{
+      padding-top: 545px;
+    }
   }
 }

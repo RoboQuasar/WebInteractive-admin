@@ -8,11 +8,11 @@ import styles from './styles.module.scss';
 
 const LogoutIcon = () => {
   return (
-    <div className={styles.imageContainer}>
 
-      <WebInteractiveUserIcon />
 
-    </div>
+      <WebInteractiveUserIcon className={styles.imageContainer} />
+
+
   );
 };
 
