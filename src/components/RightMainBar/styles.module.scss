@@ -1,0 +1,34 @@
+@import "../../styles/css-vars.scss";
+
+//не забыть поменять стили
+
+.RightMainBar {
+  padding: 0;
+  margin: 0;
+  width: 191px;
+  //max-width: 191px;
+  //min-width: 100px;
+  height: 1000px;
+  border-bottom: solid 1px var(--melrose);
+  border-left: solid 1px var(--melrose);
+  position: absolute;
+  right: 0;
+  //display: flex;
+  //flex-direction: column;
+
+  li{
+    list-style-type: none;
+    text-align: center;
+    &:first-child{
+      padding-top: 53px;
+    }
+
+    &:last-child{
+      padding-top: 545px;
+    }
+  }
+
+  // .UserAvatar{
+
+  // }
+}

@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import {ReactComponent as WebInteractiveLogo} from 'icons/logo.svg';
 import NavigationLink from 'components/NavigationLink';
 
+
 import styles from './styles.module.scss';
+
 
 
 const Logo = () => {
@@ -11,6 +13,7 @@ const Logo = () => {
       <NavigationLink className={styles.imageContainer} hrefLink="/main">
         <WebInteractiveLogo />
       </NavigationLink>
+
   );
 };
 

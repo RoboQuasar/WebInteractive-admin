@@ -7,15 +7,15 @@
     border-right: solid 1px var(--melrose);
     padding: 0;
 
-    .bottomLink{
+    & .bottomLink{
         margin-top: 100px;
     }
 
-    .navMenu:first-child{
+    & .navMenu:first-child{
        padding-top: 72px;
     }
 
-    .navLink{
+    & .navLink{
         text-decoration: none;
         text-align: center;
         box-sizing: border-box;
@@ -27,12 +27,12 @@
         font-size: 20px;
     }
 
-    .twoLines{
+    & .twoLines{
         padding: 0px 15px 0px 15px;
         height: 55px;
     }
 
-    .activeLink{
+    & .activeLink{
       background-color: var(--melrose);
       color:white;
   }

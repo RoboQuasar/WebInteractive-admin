@@ -3,6 +3,8 @@ import LeftSideLayout from "components/LeftSideLayout";
 import MainContentLayout from "components/MainContentLayout";
 import Logo from 'components/Logo';
 import LeftMenu from 'components/LeftMenu';
+import RightSideLayout from 'components/RightSideLayout';
+import RightLoginBar from 'components/RightLoginBar';
 
 const EffectsPage = () => {
   return (
@@ -13,6 +15,9 @@ const EffectsPage = () => {
         <LeftMenu />
       </LeftSideLayout>
       <MainContentLayout>Тут будет EffectsPage</MainContentLayout>
+      <RightSideLayout>
+        <RightLoginBar />
+      </RightSideLayout>
     </React.Fragment>
   )
 };
