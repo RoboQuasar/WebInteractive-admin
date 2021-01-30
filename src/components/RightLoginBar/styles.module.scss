@@ -2,24 +2,27 @@
 
 //не забыть поменять стили
 
-.RightLoginBar {
-  padding: 0;
-  margin: 0;
-  width: auto;
-  max-width: 191px;
-  min-width: 100px;
-  height: 693px;
-  border-bottom: solid 1px var(--melrose);
-  border-left: solid 1px var(--melrose);
-  position: absolute;
+.UlRightLoginBar {
   right: 0;
   display: flex;
   flex-direction: column;
+  justify-content:space-between;
+  width: auto;
+  height: 100%;
+  border-bottom: solid 1px var(--melrose);
+  border-left: solid 1px var(--melrose);
 
-  li{
-    list-style-type: none;
+
+  .LiRightLoginBar{
     &:last-child{
-      padding-top: 545px;
+      margin-bottom: 42px;
     }
+  }
+
+  .link{
+    width: 100px;
+    height: 58px;
+    background-color: var(--periwinkle);
+    text-align: center;
   }
 }

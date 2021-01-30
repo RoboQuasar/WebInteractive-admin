@@ -23,13 +23,13 @@ li{
   margin: 0;
   padding: 0;
   line-height: 1;
+  list-style-type: none;
 }
 
 a,
 a:visited{
     display: inline-block;
-    //height: 100%;
-    width: 100%;
+    width: 100%;//если убираю ширину  - все ссылки уходят влево
     color:black;
 }
 

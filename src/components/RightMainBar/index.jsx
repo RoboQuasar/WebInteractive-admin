@@ -3,49 +3,40 @@ import PropTypes from 'prop-types';
 
 import styles from './styles.module.scss';
 
-
-
-import Avatar from 'react-avatar';
 import NavigationLink from 'components/NavigationLink';
+import avatar from '../../images/Avatar.jpg'
 
 const RightMainBar = () => {
   return (
-    <ul className={styles.RightMainBar}>
+    <ul className={styles.UlRightMainBar}>
       <li>
-      {/* https://www.npmjs.com/package/react-avatar */}
-      <Avatar
-        className={styles.UserAvatar}
-        round={true}
-        size="75"
-        >
-      </Avatar>
+      <img alt="avatar" src={avatar} className={styles.Avatar}></img>
       </li>
 
-      <li>
-        <p>Имя</p>
-        <p>Фамилия</p>
+      <li className={styles.Name}>
+        Имя
       </li>
 
-      <li>
-        <NavigationLink hrefLink="/">
-          Тариф
-        </NavigationLink>
+      <li className={styles.SecondName}>
+        Фамилия
       </li>
 
-      <li>
-      <NavigationLink hrefLink="/">
-          Остаток срока <br/>подписки
-        </NavigationLink>
+      <li className={styles.Rate}>
+        Тариф
       </li>
 
-      <li>
-      <NavigationLink hrefLink="/">
+      <li className={styles.Remainder}>
+        Остаток срока <br/>подписки
+      </li>
+
+      <li className={styles.ProfileLink}>
+        <NavigationLink className={styles.RightMainLink} hrefLink="/">
           Мой профиль
         </NavigationLink>
       </li>
 
       <li>
-      <NavigationLink hrefLink="/">
+        <NavigationLink className={styles.RightMainLink} hrefLink="/">
           Выйти
         </NavigationLink>
       </li>
