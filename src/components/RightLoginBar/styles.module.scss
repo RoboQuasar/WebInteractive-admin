@@ -2,7 +2,7 @@
 
 //не забыть поменять стили
 
-.UlRightLoginBar {
+.loginBarList {
 
   display: flex;
   flex-direction: column;
@@ -13,9 +13,9 @@
   border-left: solid 1px var(--melrose);
 
 
-  .LiRightLoginBar{
+  .loginBarItem{
     &:last-child{
-      margin-bottom: 42px;
+      margin-bottom: 37px;
     }
   }
 

@@ -9,14 +9,14 @@ import NavigationLink from 'components/NavigationLink';
 
 const RightLoginBar = () => {
   return (
-    <ul className={styles.UlRightLoginBar}>
-      <li className={styles.LiRightLoginBar}>
+    <ul className={styles.loginBarList}>
+      <li className={styles.loginBarItem}>
         <NavigationLink className={styles.link} hrefLink ="/auth">
           <UserIcon />
         </NavigationLink>
       </li>
 
-      <li className={styles.LiRightLoginBar}>
+      <li className={styles.loginBarItem}>
         <NavigationLink className={styles.link} hrefLink ="/auth">
           <LogoutIcon />
         </NavigationLink>
