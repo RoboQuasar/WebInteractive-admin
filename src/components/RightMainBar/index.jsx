@@ -8,35 +8,35 @@ import avatar from '../../images/Avatar.jpg'
 
 const RightMainBar = () => {
   return (
-    <ul className={styles.UlRightMainBar}>
+    <ul className={styles.loginBarList}>
       <li>
-      <img alt="avatar" src={avatar} className={styles.Avatar}></img>
+      <img alt="avatar" src={avatar} className={styles.avatar}></img>
       </li>
 
-      <li className={styles.Name}>
+      <li className={styles.name}>
         Имя
       </li>
 
-      <li className={styles.SecondName}>
+      <li className={styles.secondName}>
         Фамилия
       </li>
 
-      <li className={styles.Rate}>
+      <li className={styles.rate}>
         Тариф
       </li>
 
-      <li className={styles.Remainder}>
+      <li className={styles.remainder}>
         Остаток срока <br/>подписки
       </li>
 
-      <li className={styles.ProfileLink}>
-        <NavigationLink className={styles.RightMainLink} hrefLink="/">
+      <li className={styles.profileLink}>
+        <NavigationLink className={styles.rightMainLink} hrefLink="/">
           Мой профиль
         </NavigationLink>
       </li>
 
       <li>
-        <NavigationLink className={styles.RightMainLink} hrefLink="/">
+        <NavigationLink className={styles.rightMainLink} hrefLink="/">
           Выйти
         </NavigationLink>
       </li>
