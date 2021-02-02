@@ -1,0 +1,10 @@
+@import "../../styles/css-vars.scss";
+
+.AuthModalWindow {
+  position: fixed; /* Stay in place */
+  width: 100px;
+  height: 100px;
+  overflow: auto; 
+  background-color: red; 
+  }
+

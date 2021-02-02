@@ -1,0 +1,28 @@
+@import "../../styles/css-vars.scss";
+
+//не забыть поменять стили
+
+.loginBarList {
+
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  width: auto;
+  height: 100%;
+  border-bottom: solid 1px var(--melrose);
+  border-left: solid 1px var(--melrose);
+
+
+  .loginBarItem{
+    &:last-child{
+      margin-bottom: 37px;
+    }
+  }
+
+  .link{
+    width: 100px;
+    height: 58px;
+    background-color: var(--periwinkle);
+    text-align: center;
+  }
+}

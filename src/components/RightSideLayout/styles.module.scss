@@ -1,0 +1,9 @@
+@import "../../styles/css-vars.scss";
+
+//не забыть изменить стили
+
+.rightSide {
+  width: auto;
+  border-bottom: solid 1px var(--melrose);
+  border-left: solid 1px var(--melrose);
+}

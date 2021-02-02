@@ -1,59 +1,38 @@
 @import "../../styles/css-vars.scss";
 
 .navMenu{
-    height: 900px;
+    height: calc(100% - 90px);
     width: 200px;
     background-color: $titanWhite;
     border-right: solid 1px var(--melrose);
     padding: 0;
 
-    // .leftMenuLi{
-    //     list-style-type: none;
-    //     height: 55px;
-    //     text-align: center;
-    //     margin-top: 0px;
-    // }
-
-    .bottomLink{
+    & .bottomLink{
         margin-top: 100px;
     }
 
-    .navMenu:first-child{
+    & .navMenu:first-child{
        padding-top: 72px;
     }
 
-    .navLink{
+    & .navLink{
         text-decoration: none;
         text-align: center;
         box-sizing: border-box;
         padding: 15px;
         line-height: 25px;
         font-family: Roboto;
-        font-style: normal;
         font-weight: bold;
         font-size: 20px;
     }
 
-    .twoLines{
-        padding:0px 15px 0px 15px;
+    & .twoLines{
+        padding: 0px 15px 0px 15px;
         height: 55px;
     }
 
-    a,
-    a:visited{
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        color:black;
-    }
-
-    a:hover{
-        background-color: var(--melrose);
-        color:white;
-    }
-
-    a.activeLink{
-        background-color: var(--melrose);
-        color:white;
-    }
+    & .activeLink{
+      background-color: var(--melrose);
+      color:white;
+  }
 }
