@@ -1,23 +1,56 @@
 @import "../../styles/css-vars.scss";
 
-  .test{
+  .pageLayout{
+    display: flex;
     height: 100vh;
     width: 100vw;
-    background-color:burlywood;
-    background: -webkit-linear-gradient(top, #CDCFFF, #FFFFFF);
-    //что то я не смог разобраться в префиксах Scss =(
+    background: linear-gradient(to bottom, #CDCFFF, #FFFFFF);
+    vertical-align: middle;
+    justify-content: center;
 
 
-  .authWindow {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 725px;
-    height: 439px;
-    overflow: auto;
-    background-color: var(--pochtibeliy)
-    //background:-webkit-linear-gradient(top , white, black);
+
+    .authWindow {
+      width: 725px;
+      height: 439px;
+      padding: 40px 150px;
+      background-color: var(--magnolia);
+      border: 2px solid var(--cornflowerBlue);
+      margin: auto;
     }
+
+    .greetingText{
+      width: 423px;
+      margin: auto auto 40px auto;
+      font-family: Roboto;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 35px;
+      text-align: center;
+    }
+
+    .wrapInput{
+      width: 423px;
+      height: 40px;
+      display: flex;
+      margin: auto auto 40px auto;
+      text-align: center;
+      justify-content: space-between;
+    }
+
+    .inputField{
+      width: 280px;
+      border: 1px solid var(--cornflowerBlue);
+    }
+
+    .labelText{
+      font-family: Roboto;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 23px;
+      text-align: center;
+      margin: auto 0 auto 0;
+    }
+
   }
 

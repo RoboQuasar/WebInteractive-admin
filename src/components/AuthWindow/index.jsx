@@ -6,18 +6,22 @@ import NavigationLink from 'components/NavigationLink';
 
 const AuthWindow = () => {
   return (
-
-    <form className={styles.test}>
-      <fieldset className={styles.authWindow}>
-        <p>Добро пожаловать<br />в систему оживления сайтов!</p>
-        <label htmlFor="email">Логин</label> <input type="email" /><br />
-        <label htmlFor="password">Пароль</label> <input type="password" />
+    <section className={styles.pageLayout}>
+      <form className={styles.authWindow}>
+        <p className={styles.greetingText}>Добро пожаловать<br />в систему оживления сайтов!</p>
+        <div className={styles.wrapInput}>
+          <label htmlFor="email" className={styles.labelText}>Логин</label>
+          <input type="email" className={styles.inputField}/>
+        </div>
+        <div className={styles.wrapInput}>
+          <label htmlFor="password" className={styles.labelText}>Пароль</label>
+          <input type="password" className={styles.inputField}/>
+        </div>
         <button>Войти</button>
-        <button>Регистрация</button>
+        <NavigationLink hrefLink="/">Регистрация</NavigationLink>
         <NavigationLink hrefLink="/">Узнать о нас больше</NavigationLink>
-      </fieldset>
-    </form>
-
+      </form>
+    </section>
   );
 };
 
