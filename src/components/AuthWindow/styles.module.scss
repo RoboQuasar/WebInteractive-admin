@@ -5,15 +5,12 @@
     height: 100vh;
     width: 100vw;
     background: linear-gradient(to bottom, #CDCFFF, #FFFFFF);
-    vertical-align: middle;
-    justify-content: center;
-
-
 
     .authWindow {
+      box-sizing: border-box;
       width: 725px;
       height: 439px;
-      padding: 40px 150px;
+      padding: 40px 0px;
       background-color: var(--magnolia);
       border: 2px solid var(--cornflowerBlue);
       margin: auto;
@@ -30,10 +27,11 @@
     }
 
     .wrapInput{
-      width: 423px;
+
+      width: 378px;
       height: 40px;
       display: flex;
-      margin: auto auto 40px auto;
+      margin: 0px 0px 40px 150px;
       text-align: center;
       justify-content: space-between;
     }
@@ -41,6 +39,10 @@
     .inputField{
       width: 280px;
       border: 1px solid var(--cornflowerBlue);
+      font-family: Roboto;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 23px;
     }
 
     .labelText{
@@ -52,5 +54,45 @@
       margin: auto 0 auto 0;
     }
 
+    .enterRegistrationField{
+      //позиционирование подогнано хреного( разберем на созвоне?
+      margin-left: 242px;
+      width: 286px;
+      text-align: end;
+        & .enterButton{
+          width: 110px;
+          height: 38px;
+          padding: 0px;
+          border: 2px solid #706DFF;
+          border-radius: 5px;
+          background: #979BFF;
+          font-family: Roboto;
+          font-weight: bold;
+          font-size: 20px;
+          line-height: 23px;
+          color: #FFFBFB;
+        }
+
+        & .registration{
+          width: 140px;
+          height: 38px;
+          margin: auto 0px auto 0px;
+          font-family: Roboto;
+          font-weight: bold;
+          font-size: 23px;
+          line-height: 38px;
+          text-align: center;
+        }
+      }
+
+     .reg{
+      height: 38px;
+      width: auto;
+      margin: auto 0px auto 242px;
+      font-family: Roboto;
+      font-weight: bold;
+      font-size: 23px;
+      line-height: 38px;
+    }
   }
 

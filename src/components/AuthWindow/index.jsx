@@ -8,18 +8,20 @@ const AuthWindow = () => {
   return (
     <section className={styles.pageLayout}>
       <form className={styles.authWindow}>
-        <p className={styles.greetingText}>Добро пожаловать<br />в систему оживления сайтов!</p>
+        <h1 className={styles.greetingText}>Добро пожаловать<br />в систему оживления сайтов!</h1>
         <div className={styles.wrapInput}>
-          <label htmlFor="email" className={styles.labelText}>Логин</label>
-          <input type="email" className={styles.inputField}/>
+          <label id="emailField" htmlFor="email" className={styles.labelText}>Логин</label>
+          <input id="emailField" type="email" className={styles.inputField}/>
         </div>
         <div className={styles.wrapInput}>
-          <label htmlFor="password" className={styles.labelText}>Пароль</label>
-          <input type="password" className={styles.inputField}/>
+          <label id="passwordField" htmlFor="password" className={styles.labelText}>Пароль</label>
+          <input id="passwordField" type="password" className={styles.inputField}/>
         </div>
-        <button>Войти</button>
-        <NavigationLink hrefLink="/">Регистрация</NavigationLink>
-        <NavigationLink hrefLink="/">Узнать о нас больше</NavigationLink>
+        <div className={`${styles.wrapInput} ${styles.enterRegistrationField}`}>
+        <button className={styles.enterButton}>Войти</button>
+        <NavigationLink className={styles.registration} hrefLink="/">Регистрация</NavigationLink>
+        </div>
+        <NavigationLink className={styles.reg} hrefLink="/">Узнать о нас больше</NavigationLink>
       </form>
     </section>
   );
