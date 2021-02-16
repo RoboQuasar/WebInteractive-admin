@@ -9,7 +9,6 @@
     .authWindow {
       box-sizing: border-box;
       width: 725px;
-      height: 439px;
       padding: 40px 0px;
       background-color: var(--magnolia);
       border: 2px solid var(--cornflowerBlue);
@@ -31,7 +30,7 @@
       width: 378px;
       height: 40px;
       display: flex;
-      margin: 0px 0px 40px 150px;
+      margin: 0px 0px 35px 150px;
       text-align: center;
       justify-content: space-between;
     }
