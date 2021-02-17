@@ -8,7 +8,7 @@ const AuthWindow = () => {
   return (
     <div className={styles.pageLayout}>
       <form className={styles.authWindow}>
-        <h1 className={styles.greetingText}>Добро пожаловать<br />в систему оживления сайтов!</h1>
+        <h2 className={styles.greetingText}>Добро пожаловать<br />в систему оживления сайтов!</h2>
         <div className={styles.wrapInput}>
           <label htmlFor="emailField" className={styles.labelText}>Логин</label>
           <input id="emailField" type="email" className={styles.inputField}/>
