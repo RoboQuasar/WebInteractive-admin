@@ -1,12 +1,18 @@
 import React from 'react';
 import LeftSideLayout from "components/LeftSideLayout";
 import MainContentLayout from "components/MainContentLayout";
+import Logo from 'components/Logo';
+import LeftMenu from 'components/LeftMenu';
 
 const ProfilePage = () => {
   return (
     <React.Fragment>
-      <LeftSideLayout>Тут будет Лого и лефт-меню</LeftSideLayout>
-      <MainContentLayout>Тут будет MainContent</MainContentLayout>
+       <LeftSideLayout>
+        <Logo />
+
+        <LeftMenu />
+      </LeftSideLayout>
+      <MainContentLayout>Тут будет Профиль!</MainContentLayout>
     </React.Fragment>
   )
 };

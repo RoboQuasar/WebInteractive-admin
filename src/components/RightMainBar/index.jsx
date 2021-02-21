@@ -9,7 +9,7 @@ import avatar from '../../images/Avatar.jpg'
 const RightMainBar = () => {
   return (
     <ul className={styles.loginBarList}>
-      <li>
+      <li className={styles.avatarList}>
       <img alt="avatar" src={avatar} className={styles.avatar}></img>
       </li>
 
@@ -30,7 +30,7 @@ const RightMainBar = () => {
       </li>
 
       <li className={styles.profileLink}>
-        <NavigationLink className={styles.rightMainLink} hrefLink="/">
+        <NavigationLink className={styles.rightMainLink} hrefLink="/profile">
           Мой профиль
         </NavigationLink>
       </li>
