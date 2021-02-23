@@ -38,38 +38,32 @@
       width: 467px;
       height: 40px;
       display: flex;
-      margin: 0px 0px 35px 150px;
+      margin: 0px 196px 35px auto;
       text-align: center;
       //justify-content: space-between;
     }
 
     .labelText{
-      display: flex;
       height: inherit;
       width: inherit;
-      justify-content: flex-end;
       //margin: auto 0 auto 0;
       font-family: Roboto;
       font-weight: bold;
       font-size: 20px;
       line-height: 23px;
-      //text-align: center;
-      vertical-align: middle;
-      float: left;
       text-align: end;
     }
 
-    // //это костыль=(///////////
-    // .twoLineLabel{          //
-    //   display: flex;        //
-    //   margin: 0;            //
-    //   height: 62px;         //
-    //   //justify-content: end;
-    //   vertical-align: auto; //
-    // }                       //
-    // //это костыль=(///////////
+    //это костыль=(///////////
+    .twoLineLabel{          //
+      display: flex;        //
+      justify-content: space-between;
+      vertical-align: auto;
+    }                       //
+    //это костыль=(///////////
 
     .inputField{
+      padding: 0;
       height: 40px;
       width: 280px;
       margin: 0;
@@ -79,7 +73,6 @@
       font-weight: bold;
       font-size: 20px;
       line-height: 23px;
-
     }
 
     .enterRegistrationField{
