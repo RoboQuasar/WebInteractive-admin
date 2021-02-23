@@ -14,6 +14,7 @@ import EffectsPage from "pages/EffectsPage";
 import StatPage from "pages/StatPage";
 import HelpPage from "pages/HelpPage";
 import ModelsPage from "pages/ModelsPage";
+import RegistrationPage from "pages/RegistrationPage"
 
 import styles from './styles.module.scss';
 
@@ -36,22 +37,22 @@ function App() {
           <Route path="/profile">
             <ProfilePage />
           </Route>
- 
+
           <Route path="/widgets">
             <WidgetsPage />
-          </Route> 
+          </Route>
 
           <Route path="/elements">
             <ElementsPage />
-          </Route> 
+          </Route>
 
           <Route path="/effects">
             <EffectsPage />
-          </Route> 
+          </Route>
 
           <Route path="/stat">
             <StatPage />
-          </Route> 
+          </Route>
 
           <Route path="/help">
             <HelpPage />
@@ -59,6 +60,10 @@ function App() {
 
           <Route path="/models">
             <ModelsPage />
+          </Route>
+
+          <Route path="/registration">
+            <RegistrationPage />
           </Route>
 
         </Switch>

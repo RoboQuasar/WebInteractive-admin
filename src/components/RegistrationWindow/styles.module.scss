@@ -6,7 +6,7 @@
     width: 100vw;
     background: linear-gradient(to bottom, #CDCFFF, #FFFFFF);
 
-    .authWindow {
+    .registrationWindow {
       box-sizing: border-box;
       width: 725px;
       padding: 40px 0px;
@@ -17,41 +17,73 @@
 
     .greetingText{
       width: 423px;
-      margin: auto auto 40px auto;
+      margin: auto auto 13px auto;
       font-family: Roboto;
       font-weight: bold;
+      font-size: 30px;
       line-height: 35px;
       text-align: center;
     }
 
+    .pleaText{
+      width: 412px;
+      margin: auto auto 45px auto;
+      font-family: Roboto;
+      font-size: 20px;
+      line-height: 23px;
+      text-align: center;
+    }
+
     .wrapInput{
-      width: 378px;
+      width: 467px;
       height: 40px;
       display: flex;
       margin: 0px 0px 35px 150px;
       text-align: center;
-      justify-content: space-between;
+      //justify-content: space-between;
     }
 
+    .labelText{
+      display: flex;
+      height: inherit;
+      width: inherit;
+      justify-content: flex-end;
+      //margin: auto 0 auto 0;
+      font-family: Roboto;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 23px;
+      //text-align: center;
+      vertical-align: middle;
+      float: left;
+      text-align: end;
+    }
+
+    // //это костыль=(///////////
+    // .twoLineLabel{          //
+    //   display: flex;        //
+    //   margin: 0;            //
+    //   height: 62px;         //
+    //   //justify-content: end;
+    //   vertical-align: auto; //
+    // }                       //
+    // //это костыль=(///////////
+
     .inputField{
+      height: 40px;
       width: 280px;
+      margin: 0;
+      margin-left: 13px;
       border: 1px solid var(--cornflowerBlue);
       font-family: Roboto;
       font-weight: bold;
       font-size: 20px;
       line-height: 23px;
-    }
 
-    .labelText{
-      font-family: Roboto;
-      font-weight: bold;
-      font-size: 20px;
-      line-height: 23px;
-      text-align: center;
-      margin: auto 0 auto 0;
     }
 
     .enterRegistrationField{
+      //позиционирование подогнано хреного( разберем на созвоне?
       margin-left: 242px;
       width: 286px;
       text-align: end;

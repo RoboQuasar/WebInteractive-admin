@@ -19,7 +19,7 @@ const AuthWindow = () => {
         </div>
         <div className={`${styles.wrapInput} ${styles.enterRegistrationField}`}>
         <button className={styles.enterButton}>Войти</button>
-        <NavigationLink className={styles.registration} hrefLink="/">Регистрация</NavigationLink>
+        <NavigationLink className={styles.registration} hrefLink="/registration">Регистрация</NavigationLink>
         </div>
         <NavigationLink className={styles.reg} hrefLink="/">Узнать о нас больше</NavigationLink>
       </form>
