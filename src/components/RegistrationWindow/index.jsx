@@ -7,7 +7,7 @@ import NavigationLink from 'components/NavigationLink';
 const RegistrationWindow = () => {
   return (
     <div className={styles.pageLayout}>
-      <form className={styles.registrationWindow}>
+      <div className={styles.registrationWindow}>
         <h2 className={styles.greetingText}>Добро пожаловать<br />в систему оживления сайтов!</h2>
         <p className={styles.pleaText}>Внесите данные, необходимые для создания нового аккаунта в системе.</p>
 
@@ -23,30 +23,33 @@ const RegistrationWindow = () => {
           </label>
          </div>
 
-        <div className={styles.wrapInput}>
-          <label className={styles.labelText}>Login/email<sup>*</sup>
+         <div className={styles.wrapInput}>
+          <label className={styles.labelText}>
+            <span className={styles.requiredField}>Login/email</span>
             <input  type="text" className={styles.inputField}/>
           </label>
         </div>
 
         <div className={styles.wrapInput}>
-          <label className={styles.labelText}>Пароль<sup>*</sup>
-            <input type="password" className={styles.inputField}/>
+          <label className={styles.labelText}>
+            <span className={styles.requiredField}>Пароль</span>
+            <input type="password" className={`${styles.inputField} ${styles.requiredField}`}/>
           </label>
         </div>
 
         <div className={styles.wrapInput}>
-          <label className={`${styles.labelText} ${styles.twoLineLabel}`}>Подтверждение<br/>пароля<sup>*</sup>
+          <label className={`${styles.labelText} ${styles.twoLineLabel}`}>
+            <span className={`${styles.requiredField} ${styles.twoLineLabel}`}>Подтверждение пароля</span>
             <input type="password" className={styles.inputField}/>
           </label>
         </div>
 
-        <div className={`${styles.wrapInput} ${styles.enterRegistrationField}`}>
-        <button className={styles.enterButton}>Регистрация</button>
-        <NavigationLink className={styles.registration} hrefLink="/auth">Вход с паролем</NavigationLink>
+        <div className={styles.enterRegistrationField}>
+          <button className={styles.enterButton}>Регистрация</button>
+          <NavigationLink className={styles.enterWithPassLink} hrefLink="/auth">Вход с паролем</NavigationLink>
+          <NavigationLink className={styles.reg} hrefLink="/">Узнать о нас больше</NavigationLink>
         </div>
-        <NavigationLink className={styles.reg} hrefLink="/">Узнать о нас больше</NavigationLink>
-      </form>
+      </div>
     </div>
   );
 };
