@@ -7,7 +7,7 @@ import NavigationLink from 'components/NavigationLink';
 const RegistrationWindow = () => {
   return (
     <div className={styles.pageLayout}>
-      <div className={styles.registrationWindow}>
+      <form className={styles.registrationWindow}>
         <h2 className={styles.greetingText}>Добро пожаловать<br />в систему оживления сайтов!</h2>
         <p className={styles.pleaText}>Внесите данные, необходимые для создания нового аккаунта в системе.</p>
 
@@ -49,7 +49,7 @@ const RegistrationWindow = () => {
           <NavigationLink className={styles.enterWithPassLink} hrefLink="/auth">Вход с паролем</NavigationLink>
           <NavigationLink className={styles.reg} hrefLink="/">Узнать о нас больше</NavigationLink>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
