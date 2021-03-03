@@ -20,19 +20,11 @@
       margin: auto auto 40px auto;
       font-family: Roboto;
       font-weight: bold;
-<<<<<<< HEAD
-=======
-      //font-size: 25px;
->>>>>>> 9e0edc06d9c066fc9a86250a30415715e5a2f5f2
       line-height: 35px;
       text-align: center;
     }
 
     .wrapInput{
-<<<<<<< HEAD
-=======
-
->>>>>>> 9e0edc06d9c066fc9a86250a30415715e5a2f5f2
       width: 378px;
       height: 40px;
       display: flex;
@@ -60,10 +52,6 @@
     }
 
     .enterRegistrationField{
-<<<<<<< HEAD
-=======
-      //позиционирование подогнано хреного( разберем на созвоне?
->>>>>>> 9e0edc06d9c066fc9a86250a30415715e5a2f5f2
       margin-left: 242px;
       width: 286px;
       text-align: end;
@@ -71,11 +59,7 @@
           width: 110px;
           height: 38px;
           padding: 0px;
-<<<<<<< HEAD
           border:none;
-=======
-          border: 2px solid #706DFF;
->>>>>>> 9e0edc06d9c066fc9a86250a30415715e5a2f5f2
           border-radius: 5px;
           background: #979BFF;
           font-family: Roboto;
@@ -89,16 +73,22 @@
           width: 140px;
           height: 38px;
           margin: auto 0px auto 0px;
-<<<<<<< HEAD
           border-radius: 5px;
-=======
->>>>>>> 9e0edc06d9c066fc9a86250a30415715e5a2f5f2
           font-family: Roboto;
           font-weight: bold;
           font-size: 23px;
           line-height: 38px;
           text-align: center;
         }
+      }
+
+      .errorMessage{
+        font-family: Roboto;
+        font-weight: 700;
+        color: #FF4F4F;
+        width: 280px;
+        word-wrap: break-word;
+        margin: 10px auto 20px 245px;
       }
 
      .reg{
