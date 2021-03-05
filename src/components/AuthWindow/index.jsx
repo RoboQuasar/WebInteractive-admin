@@ -8,7 +8,6 @@ const AuthWindow = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [isViewErrorMessage, setIsViewErrorMessage] = useState(false);
 
   function handleEmail(e){
     console.log(e.target.value);
@@ -20,31 +19,45 @@ const AuthWindow = () => {
     setPassword(e.target.value);
   }
 
-  function handleSubmit(e){
+  async function handleSubmit(e){
     e.preventDefault();
-    setIsViewErrorMessage(false);
-
-    fetch(
+    try{
+    const response = await fetch(
       "https://web-interactive.herokuapp.com/login",
       {method:'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8'
         },
-        body:JSON.stringify({
-          login:login,
-          password:password
-       }),
+      body:JSON.stringify({
+        login:login,
+        password:password
+        }),
       }
-    )
-
-    .then(async response => {
-      if (!response.ok) {
-          console.log("Ошибка!"); //Не знаю как вывести текст ошибки. response.что-то еще?
-          setIsViewErrorMessage(true);
-          setErrorMessage("Тут ты ооооооочень не правильно вводишь логин или пароль, Братец");
-      }
-  })
+    );
+    //let response_json = await response.json();
+    setErrorMessage("Вродь вышло" + response.text);
+    console.log(response);
+    console.log(response.text);
   }
+  catch(err){
+    console.log("Пизнец!!", err);
+    setErrorMessage("Писос! не вышло! ");
+  }
+    // if(response.ok){
+    //   console.log("Получилось!");
+    // }
+    // let response_json = await response.json();
+    // //console.log(response_json);
+    // if (response_json.ok) {
+    //   console.log("Ошибка! неправильный логин или пароль!" );
+    //   setErrorMessage("Ошибка! "+ response_json.text );
+    // }
+    // else{
+    //   //let response_json = await response.json();
+    //   console.log("Проверка логина и пароля прошла успешно!");
+    //   setErrorMessage("Отлично! response говорит " + response_json.text);
+    }
+
 
   return (
     <div className={styles.pageLayout}>
@@ -61,7 +74,7 @@ const AuthWindow = () => {
           <input id="passwordField" type="password" className={styles.inputField} onChange={handlePassword}/>
         </div>
 
-        {isViewErrorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
+        <p className={styles.errorMessage}>{errorMessage}</p>
 
         <div className={`${styles.wrapInput} ${styles.enterRegistrationField}`}>
           <button className={styles.enterButton}>Войти</button>

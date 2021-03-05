@@ -12,8 +12,7 @@ const RegistrationWindow = () => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setpasswordConfirm] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [isViewLoadingMessage, setIsViewLoadingMessage] = useState(false);
-  const [isViewErrorMessage, setIsViewErrorMessage] = useState(false);
+  const [enterButtonText, setEnterButtonText] = useState("Регистрация")
 
  // const [buttonIsDisable, setButtonIsDisable] = useState(true);
 
@@ -58,16 +57,16 @@ const RegistrationWindow = () => {
       return false;
     }
     else {
-      console.log("УСЛОВИЕ не сработало");
+      //console.log("УСЛОВИЕ не сработало");
 
       if (name.length >= 2){
-        console.log("Валидация имени пройденна");
+        //console.log("Валидация имени пройденна");
       }
       if (password.length >= 5){
-        console.log("Валидация Пароля пройденна");
+        //console.log("Валидация Пароля пройденна");
       }
       if (password == passwordConfirm){
-        console.log("проверка пароля пройденна");
+        //console.log("проверка пароля пройденна");
       }
       return true;
     }
@@ -75,9 +74,8 @@ const RegistrationWindow = () => {
 
  function handleSubmit(e){
     e.preventDefault();
-    setIsViewLoadingMessage(true);
-    //let response = await fetch;
-
+    setEnterButtonText("Загрузочка");
+    setErrorMessage('');
     fetch(
       "https://web-interactive.herokuapp.com/register",
       {method:'POST',
@@ -92,17 +90,23 @@ const RegistrationWindow = () => {
           passwordConfirm:passwordConfirm
        }),
       }
-    )
-
-    .then(async response => {
-      setIsViewLoadingMessage(false);
-      if (!response.ok) {
-          console.log("Ошибка!"); //Не знаю как вывести текст ошибки. response.что-то еще?
-          setIsViewErrorMessage(true);
-          setErrorMessage("Тут ты ооооооочень не прав, Братец");
+    ).then((result) => {
+      if(result.ok){
+        setErrorMessage('Вы успешно зарегистрированны');
+        setEnterButtonText("Регистрация");
       }
-  })
-  }
+      return result.json();
+    },(error) => {
+      console.log("Ошибка", error);
+      setErrorMessage('Было весело, но что-то пошло не так (О_о)');
+      setEnterButtonText("Регистрация");
+      }
+      ).then((data) => {
+        console.log("Получаем данные promise", data.login);
+        setErrorMessage(data.login);
+        setEnterButtonText("Регистрация");
+      })
+    }
 
   return (
     <div className={styles.pageLayout}>
@@ -142,14 +146,14 @@ const RegistrationWindow = () => {
             <input type="password" onChange={handleConfPasswordChange} className={styles.inputField}/>
           </label>
 
-          {isViewErrorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
-        {/* {///////////////////////////////////////////////////////////////////////////////////} */}
-          {isViewLoadingMessage && <p className={styles.loadingMessage}>Загрузочка...</p>}
-      {/*Мне не очень нравится такой подход. Мне кажеться должен быть способ отслеживания загрузки через .then*/}
+          <p className={styles.errorMessage}>{errorMessage}</p>
+
+          {/* {isViewLoadingMessage && <p className={styles.loadingMessage}>Загрузочка...</p>} */}
+
 
         <div className={styles.enterRegistrationField}>
           <div className={styles.RomaYaNeHochuPosicionirovatbEtiKomponentbl4epe3Span}>
-            <button disabled={validationCheck()} className={styles.enterButton} >Регистрация</button>
+            <button disabled={validationCheck()} className={styles.enterButton} >{enterButtonText}</button>
             <DefaultLink hrefLink="/auth">Вход с паролем</DefaultLink>
           </div>
           <DefaultLink hrefLink="/">Узнать о нас больше</DefaultLink>
