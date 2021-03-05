@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 
 import styles from './styles.module.scss';
 import NavigationLink from 'components/NavigationLink';
+//import { stringify } from 'postcss';
 
 const AuthWindow = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  //const [dataJson, setDataJson] = useState();
 
   function handleEmail(e){
     console.log(e.target.value);
@@ -34,28 +36,23 @@ const AuthWindow = () => {
         }),
       }
     );
-    //let response_json = await response.json();
-    setErrorMessage("Вродь вышло" + response.text);
-    console.log(response);
-    console.log(response.text);
+    response.json();
+    //await response.json(); так не работает =( но мне кажется что правильно делать
+    //именно так. скорее всего надо по другому обрабатывать if
+
+    if(response.ok){
+      console.log("Успех");
+      setErrorMessage("Успех");
+    }
+    else{
+      console.log("Провал на уровне ввода пароля");
+      setErrorMessage("Провал на уровне ввода пароля");
+    }
+
+  }catch(err){
+    console.log("Провал");
+    setErrorMessage("провал на уровне мировой сети, прошу винить во всем рептилойдов");
   }
-  catch(err){
-    console.log("Пизнец!!", err);
-    setErrorMessage("Писос! не вышло! ");
-  }
-    // if(response.ok){
-    //   console.log("Получилось!");
-    // }
-    // let response_json = await response.json();
-    // //console.log(response_json);
-    // if (response_json.ok) {
-    //   console.log("Ошибка! неправильный логин или пароль!" );
-    //   setErrorMessage("Ошибка! "+ response_json.text );
-    // }
-    // else{
-    //   //let response_json = await response.json();
-    //   console.log("Проверка логина и пароля прошла успешно!");
-    //   setErrorMessage("Отлично! response говорит " + response_json.text);
     }
 
 
