@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 
 import styles from './styles.module.scss';
 import NavigationLink from 'components/NavigationLink';
-//import { stringify } from 'postcss';
 
 const AuthWindow = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  //const [dataJson, setDataJson] = useState();
+  const [buttonMessage, setButtonMessage] = useState("Войти");
 
   function handleEmail(e){
     console.log(e.target.value);
@@ -23,6 +22,7 @@ const AuthWindow = () => {
 
   async function handleSubmit(e){
     e.preventDefault();
+    setButtonMessage("Загрузка..");
     try{
     const response = await fetch(
       "https://web-interactive.herokuapp.com/login",
@@ -36,21 +36,19 @@ const AuthWindow = () => {
         }),
       }
     );
-    response.json();
-    //await response.json(); так не работает =( но мне кажется что правильно делать
-    //именно так. скорее всего надо по другому обрабатывать if
 
     if(response.ok){
-      console.log("Успех");
+      setButtonMessage("Войти");
       setErrorMessage("Успех");
     }
     else{
-      console.log("Провал на уровне ввода пароля");
-      setErrorMessage("Провал на уровне ввода пароля");
+     let responseJson = await response.json();
+     setButtonMessage("Войти");
+     setErrorMessage(responseJson.text);
     }
 
   }catch(err){
-    console.log("Провал");
+    setButtonMessage("Войти");
     setErrorMessage("провал на уровне мировой сети, прошу винить во всем рептилойдов");
   }
     }
@@ -74,7 +72,7 @@ const AuthWindow = () => {
         <p className={styles.errorMessage}>{errorMessage}</p>
 
         <div className={`${styles.wrapInput} ${styles.enterRegistrationField}`}>
-          <button className={styles.enterButton}>Войти</button>
+          <button className={styles.enterButton}>{buttonMessage}</button>
           <NavigationLink className={styles.registration} hrefLink="/registration">Регистрация</NavigationLink>
         </div>
 
