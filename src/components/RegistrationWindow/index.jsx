@@ -1,8 +1,10 @@
 import React,{useState} from 'react';
 import PropTypes from 'prop-types';
 import DefaultLink from 'components/DefaultLink';
+import Question from 'components/Question';
 
 import styles from './styles.module.scss';
+
 
 
 const RegistrationWindow = () => {
@@ -12,33 +14,31 @@ const RegistrationWindow = () => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setpasswordConfirm] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [enterButtonText, setEnterButtonText] = useState("Регистрация")
+  const [enterButtonText, setEnterButtonText] = useState("Регистрация");
+  const [hoverQuest, setHoverQuest] = useState("Не навел");
 
- // const [buttonIsDisable, setButtonIsDisable] = useState(true);
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
 
 
   function handleNameChange(e){
-
-    console.log(e.target.value);
-    console.log(e.target.value.length);
-    //console.log(typeof(Name));
-    setName(e.target.value);
-    //if (e.target.value.length >= 2){
-      //console.log("Проверка прошла успешно");
-      //setNameValid(true);
-    //}
-
+    if(e.target.value.match("^[A-Za-zА-Яа-яЁё]*$")!=null){
+        setName(capitalizeFirstLetter(e.target.value));
+    }
   }
 
   function handleSecondNameChange(e){
-    console.log(e.target.value);
-    setSecondName(e.target.value);
+    if(e.target.value.match("^[A-Za-zА-Яа-яЁё]*$")!=null){
+      setSecondName(capitalizeFirstLetter(e.target.value));
+    }
   }
 
   function handleEmailChange(e){
-    console.log(e.target.value);
-    setLogin(e.target.value);
+    if(e.target.value.match("[A-Za-z]")!=null){
+      setLogin(e.target.value);
+    }
   }
 
   function handlePasswordChange(e){
@@ -47,12 +47,10 @@ const RegistrationWindow = () => {
   }
 
   function handleConfPasswordChange(e){
-    //console.log(e.target.value);
     setpasswordConfirm(e.target.value);
   }
 
   function validationCheck(){
-    //return name < 2;
     if (name.length >= 2 && password.length >= 5 && password == passwordConfirm){
       return false;
     }
@@ -70,6 +68,13 @@ const RegistrationWindow = () => {
       }
       return true;
     }
+  }
+
+  //Ниче не могу сделать со знаком вопроса((
+  function handleMouseHover(){
+    setHoverQuest("Навел");
+    console.log(hoverQuest);
+    setHoverQuest("Не навел");
   }
 
  function handleSubmit(e){
@@ -115,41 +120,68 @@ const RegistrationWindow = () => {
         <p className={styles.pleaText}>Внесите данные, необходимые для создания нового аккаунта в системе.</p>
 
 
-          <label className={styles.labelText}>Имя
-            <input type="text" onChange={handleNameChange} className={styles.inputField}/>
-          </label>
+        <label className={styles.labelText}>Имя
+          <input
+            type="text"
+            onChange={handleNameChange}
+            value={name}
+            className={styles.inputField}
+            maxLength="20"/>
+        </label>
 
 
 
-          <label className={styles.labelText}>Фамилия
-            <input type="text" onChange={handleSecondNameChange} className={styles.inputField}/>
-          </label>
+        <label className={styles.labelText}>Фамилия
+          <input
+            type="text"
+            onChange={handleSecondNameChange}
+            value={secondName}
+            className={styles.inputField}
+            maxLength="20"
+          />
+        </label>
 
 
 
-          <label className={styles.labelText}>
-            <span className={styles.requiredField}>Login/email</span>
-            <input  type="text" onChange={handleEmailChange} className={styles.inputField}/>
-          </label>
+        <label className={styles.labelText}>
+          <span className={styles.requiredField}>Login/email</span>
+          <input
+            type="text"
+            onChange={handleEmailChange}
+            value={login}
+            className={styles.inputField}
+            maxLength="20"
+          />
+        </label>
 
 
 
-          <label className={styles.labelText}>
-            <span className={styles.requiredField}>Пароль</span>
-            <input type="password" onChange={handlePasswordChange} className={`${styles.inputField} ${styles.requiredField}`}/>
-          </label>
+        <label className={`${styles.labelText} ${styles.afterTest}`}>
+          <span className={styles.requiredField}>Пароль</span>
+          <input
+            type="password"
+            onChange={handlePasswordChange}
+            className={`${styles.inputField} ${styles.requiredField}`}
+            maxLength="50"
+          />
+
+            <Question questClass={styles.hint} onCkick={handleMouseHover} onMouseEnter={handleMouseHover}/>
+
+        </label>
 
 
 
-          <label className={styles.labelText}>
-            <span className={`${styles.requiredField} ${styles.twoLineLabel}`}>Подтверждение пароля</span>
-            <input type="password" onChange={handleConfPasswordChange} className={styles.inputField}/>
-          </label>
+        <label className={styles.labelText}>
+          <span className={`${styles.requiredField} ${styles.twoLineLabel}`}>Подтверждение пароля</span>
+          <input
+            type="password"
+            onChange={handleConfPasswordChange}
+            className={styles.inputField}
+            maxLength="50"
+            />
+        </label>
 
-          <p className={styles.errorMessage}>{errorMessage}</p>
-
-          {/* {isViewLoadingMessage && <p className={styles.loadingMessage}>Загрузочка...</p>} */}
-
+        <p className={styles.errorMessage}>{errorMessage}</p>
 
         <div className={styles.enterRegistrationField}>
           <div className={styles.RomaYaNeHochuPosicionirovatbEtiKomponentbl4epe3Span}>

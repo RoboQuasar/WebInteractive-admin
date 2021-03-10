@@ -2,10 +2,8 @@
 
   .pageLayout{
     display: flex;
-    //height: 100vh;//при удлении окно регистрации прилипает вверх
     width: 100vw;
     background: linear-gradient(to bottom, #CDCFFF, #FFFFFF);
-    //справился с проблемой добавив padding-top
     padding-top: 120px;
   }
 
@@ -50,6 +48,31 @@
     font-size: 20px;
     line-height: 23px;
   }
+
+  // .afterTest::after{
+  //   content: "?";
+  //   width: 20px;
+  //   height: 20px;
+  //   text-align: center;
+  //   //padding: 2px;
+  //   border: 2px var(--cornflowerBlue) solid;
+  //   border-radius: 50%;
+  //   //top: -2px;
+  //   right: -30px;
+  //   position: absolute;
+  // }
+
+  //Оставлю это как пример мыслей(
+  // .afterTest:hover::after{
+  //   content: "Ебать я кроссаФФчеГ";
+  //   border: 2px red solid;
+  // }
+  // .hint:hover::after{
+  //   display: block;
+  //   content: "Ебать я красавчик!!!";
+  //   border: red;
+  // }
+
 
   .twoLineLabel{
     display: inline-block;

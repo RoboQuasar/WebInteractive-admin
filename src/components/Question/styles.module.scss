@@ -1,0 +1,11 @@
+@import "../../styles/css-vars.scss";
+
+
+
+.question {
+  position:absolute;
+  right: -25px;
+  padding: 2px;
+  border: 2px var(--cornflowerBlue) solid;
+  border-radius: 50%;
+ }

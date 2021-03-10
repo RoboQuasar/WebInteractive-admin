@@ -61,7 +61,7 @@ const AuthWindow = () => {
 
         <div className={styles.wrapInput}>
           <label htmlFor="emailField" className={styles.labelText}>Логин</label>
-          <input id="emailField" type="email" className={styles.inputField} onChange={handleEmail}/>
+          <input id="emailField" type="text" className={styles.inputField} onChange={handleEmail}/>
         </div>
 
         <div className={styles.wrapInput}>
