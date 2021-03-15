@@ -72,7 +72,27 @@
   //   content: "Ебать я красавчик!!!";
   //   border: red;
   // }
+  .questionField{
+    position: absolute;
+    right: -25px;
+    height: 18px;
+    width: 18px;
+  }
 
+  .questionTextField{
+    position: absolute;
+    right: -230px;
+    top: -7px;
+    height: 200px;
+    width: 200px;
+    vertical-align: top;
+  }
+
+  .questionText{
+    text-align: start;
+    word-wrap: break-word;
+    border: black 1px solid;
+  }
 
   .twoLineLabel{
     display: inline-block;

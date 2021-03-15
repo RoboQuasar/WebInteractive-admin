@@ -15,7 +15,17 @@ const RegistrationWindow = () => {
   const [passwordConfirm, setpasswordConfirm] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [enterButtonText, setEnterButtonText] = useState("Регистрация");
-  const [hoverQuest, setHoverQuest] = useState("Не навел");
+  const [hintMessage, setHintMessage] = useState("");
+  const [isNameHintmessageSeen, setIsNameHintMessageSeen] = useState(false);
+  const [isNameValidError, setIsNameValidError] = useState(false);
+  const [isLoginHintmessageSeen, setIsLoginHintMessageSeen] = useState(false);
+  const [isLoginValidError, setIsLoginValidError] = useState(false);
+  const [isPasswordHintmessageSeen, setIsPasswordHintMessageSeen] = useState(false);
+  const [isPasswordValidError, setIsPasswordValidError] = useState(false);
+  const [validErrorMessage, setValidErrorMessage] = useState("Просто описание валидной ошибки");
+
+
+
 
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -26,28 +36,45 @@ const RegistrationWindow = () => {
   function handleNameChange(e){
     if(e.target.value.match("^[A-Za-zА-Яа-яЁё]*$")!=null){
         setName(capitalizeFirstLetter(e.target.value));
+        setIsNameValidError(false);
+    }
+    else{
+      setIsNameValidError(true);
+      setValidErrorMessage("Неправильное Имя");
     }
   }
 
   function handleSecondNameChange(e){
     if(e.target.value.match("^[A-Za-zА-Яа-яЁё]*$")!=null){
       setSecondName(capitalizeFirstLetter(e.target.value));
+      setIsNameValidError(false);
+    }
+    else{
+      setIsNameValidError(true);
+      setValidErrorMessage("Неправильное имя");
     }
   }
 
   function handleEmailChange(e){
-    if(e.target.value.match("[A-Za-z]")!=null){
+    if(e.target.value.match("^[A-Za-z_@0-9.]*$")!=null){
       setLogin(e.target.value);
+      setIsLoginValidError(false);
+    }
+    else{
+      setIsLoginValidError(true);
+      setValidErrorMessage("Неправильный логин");
     }
   }
 
   function handlePasswordChange(e){
     console.log(e.target.value);
     setPassword(e.target.value);
+    setIsPasswordValidError(true);
   }
 
   function handleConfPasswordChange(e){
     setpasswordConfirm(e.target.value);
+    setIsPasswordValidError(true);
   }
 
   function validationCheck(){
@@ -70,11 +97,28 @@ const RegistrationWindow = () => {
     }
   }
 
-  //Ниче не могу сделать со знаком вопроса((
-  function handleMouseHover(){
-    setHoverQuest("Навел");
-    console.log(hoverQuest);
-    setHoverQuest("Не навел");
+
+  function handleMouseHoverNameHint(){
+    setIsNameHintMessageSeen(true);
+    setHintMessage("Имя и Фамилия должны быть написанны русскими или латинскими букоФФками без пробелов и знаков");
+    console.log(hintMessage);
+  }
+
+  function handleMouseHoverLoginHint(){
+    setHintMessage("Введите логин или email. Если логин или email занЕты, введите другой логин или email!");
+    setIsLoginHintMessageSeen(true);
+    console.log(hintMessage);
+  }
+
+  function handleMouseHoverPasswordHint(){
+    setIsPasswordHintMessageSeen(true);
+    setHintMessage("Постарайтесь ввести максимально сложный пароль! Не давайте этот пароль бабушке, брату, лучшему другу или домашнему питомцу. В этом мире никому нельзя доверять =(");
+  }
+
+  function handleMouseLeave(){
+    setIsNameHintMessageSeen(false);
+    setIsLoginHintMessageSeen(false);
+    setIsPasswordHintMessageSeen(false);
   }
 
  function handleSubmit(e){
@@ -126,7 +170,18 @@ const RegistrationWindow = () => {
             onChange={handleNameChange}
             value={name}
             className={styles.inputField}
-            maxLength="20"/>
+            maxLength="20"
+          />
+          <div
+            className={styles.questionField}
+            onMouseEnter={handleMouseHoverNameHint}
+            onMouseLeave={handleMouseLeave}
+          >
+            <Question questClass={styles.hint}/>
+          </div>
+            {isNameHintmessageSeen && <div className={styles.questionTextField}>
+              <p className={styles.questionText}>{hintMessage}</p>
+            </div>}
         </label>
 
 
@@ -140,6 +195,7 @@ const RegistrationWindow = () => {
             maxLength="20"
           />
         </label>
+        {isNameValidError && <p className={styles.errorMessage}>{validErrorMessage}</p>}
 
 
 
@@ -152,7 +208,18 @@ const RegistrationWindow = () => {
             className={styles.inputField}
             maxLength="20"
           />
+          <div
+            className={styles.questionField}
+            onMouseEnter={handleMouseHoverLoginHint}
+            onMouseLeave={handleMouseLeave}
+          >
+            <Question questClass={styles.hint} />
+          </div>
+            {isLoginHintmessageSeen&&<div className={styles.questionTextField}>
+              <p className={styles.questionText}>{hintMessage}</p>
+            </div>}
         </label>
+        {isLoginValidError && <p className={styles.errorMessage}>{validErrorMessage}</p>}
 
 
 
@@ -164,12 +231,17 @@ const RegistrationWindow = () => {
             className={`${styles.inputField} ${styles.requiredField}`}
             maxLength="50"
           />
-
-            <Question questClass={styles.hint} onCkick={handleMouseHover} onMouseEnter={handleMouseHover}/>
-
+          <div
+            className={styles.questionField}
+            onMouseEnter={handleMouseHoverPasswordHint}
+            onMouseLeave={handleMouseLeave}
+          >
+            <Question questClass={styles.hint}/>
+          </div>
+            {isPasswordHintmessageSeen && <div className={styles.questionTextField}>
+              <p className={styles.questionText}>{hintMessage}</p>
+            </div>}
         </label>
-
-
 
         <label className={styles.labelText}>
           <span className={`${styles.requiredField} ${styles.twoLineLabel}`}>Подтверждение пароля</span>
@@ -181,6 +253,7 @@ const RegistrationWindow = () => {
             />
         </label>
 
+        {isPasswordValidError && <p className={styles.validErrorMessage}>{validErrorMessage}</p>}
         <p className={styles.errorMessage}>{errorMessage}</p>
 
         <div className={styles.enterRegistrationField}>
