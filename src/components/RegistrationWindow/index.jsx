@@ -73,13 +73,11 @@ const RegistrationWindow = () => {
   function handleMouseHoverNameHint(){
     setIsNameHintMessageSeen(true);
     setHintMessage("Имя и Фамилия должны быть написанны русскими или латинскими букоФФками без пробелов и знаков");
-    console.log(hintMessage);
   }
 
   function handleMouseHoverLoginHint(){
     setHintMessage("Введите логин или email. Если логин или email занЕты, введите другой логин или email!");
     setIsLoginHintMessageSeen(true);
-    console.log(hintMessage);
   }
 
   function handleMouseHoverPasswordHint(){
@@ -109,12 +107,16 @@ const RegistrationWindow = () => {
       }
     if(name.length < 2 || secondName.length < 2){
       setIsNameValidError(true);
-      setValidErrorMessage("Имя и фамилия должны быть не меньше двух символов");
+      setValidErrorMessage("Имя и фамилия должны быть не короче двух символов");
       return;
+    }
+    if(login.length < 2){
+      setIsLoginValidError(true);
+      setValidErrorMessage("Поле логина должно быть не короче двух символов");
     }
     if(password.length < 5){
       setIsPasswordValidError(true);
-      setValidErrorMessage("Пароль должен быть не меньше 5 символов");
+      setValidErrorMessage("Пароль должен быть не короче 5 символов");
       return;
     }
     if(password != passwordConfirm){
