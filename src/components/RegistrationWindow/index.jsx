@@ -5,8 +5,6 @@ import Question from 'components/Question';
 
 import styles from './styles.module.scss';
 
-
-
 const RegistrationWindow = () => {
   const [name, setName] = useState("");
   const [secondName, setSecondName] = useState("");
@@ -22,16 +20,12 @@ const RegistrationWindow = () => {
   const [isLoginValidError, setIsLoginValidError] = useState(false);
   const [isPasswordHintmessageSeen, setIsPasswordHintMessageSeen] = useState(false);
   const [isPasswordValidError, setIsPasswordValidError] = useState(false);
-  const [validErrorMessage, setValidErrorMessage] = useState("Просто описание валидной ошибки");
-
-
+  const [validErrorMessage, setValidErrorMessage] = useState("");
 
 
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-
-
 
   function handleNameChange(e){
     if(e.target.value.match("^[A-Za-zА-Яа-яЁё]*$")!=null){
@@ -40,7 +34,7 @@ const RegistrationWindow = () => {
     }
     else{
       setIsNameValidError(true);
-      setValidErrorMessage("Неправильное Имя");
+      setValidErrorMessage("Имя и фамилия могут содержать только русские и латинские буквы.");
     }
   }
 
@@ -51,7 +45,7 @@ const RegistrationWindow = () => {
     }
     else{
       setIsNameValidError(true);
-      setValidErrorMessage("Неправильное имя");
+      setValidErrorMessage("Имя и фамилия могут содержать только русские и латинские буквы.");
     }
   }
 
@@ -62,41 +56,19 @@ const RegistrationWindow = () => {
     }
     else{
       setIsLoginValidError(true);
-      setValidErrorMessage("Неправильный логин");
+      setValidErrorMessage("Логин может содержать только латинские буквы, цифры, нижнее подчеркивание, точку и @");
     }
   }
 
   function handlePasswordChange(e){
-    console.log(e.target.value);
     setPassword(e.target.value);
-    setIsPasswordValidError(true);
+    setIsPasswordValidError(false);
   }
 
   function handleConfPasswordChange(e){
     setpasswordConfirm(e.target.value);
-    setIsPasswordValidError(true);
+    setIsPasswordValidError(false);
   }
-
-  function validationCheck(){
-    if (name.length >= 2 && password.length >= 5 && password == passwordConfirm){
-      return false;
-    }
-    else {
-      //console.log("УСЛОВИЕ не сработало");
-
-      if (name.length >= 2){
-        //console.log("Валидация имени пройденна");
-      }
-      if (password.length >= 5){
-        //console.log("Валидация Пароля пройденна");
-      }
-      if (password == passwordConfirm){
-        //console.log("проверка пароля пройденна");
-      }
-      return true;
-    }
-  }
-
 
   function handleMouseHoverNameHint(){
     setIsNameHintMessageSeen(true);
@@ -123,39 +95,68 @@ const RegistrationWindow = () => {
 
  function handleSubmit(e){
     e.preventDefault();
-    setEnterButtonText("Загрузочка");
-    setErrorMessage('');
-    fetch(
-      "https://web-interactive.herokuapp.com/register",
-      {method:'POST',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-        },
-        body:JSON.stringify({
-          firstname:name,
-          lastname:secondName,
-          login:login,
-          password:password,
-          passwordConfirm:passwordConfirm
-       }),
+    if(name.length == 0 ||
+      secondName.length == 0 ||
+      login.length == 0 ||
+      password.length == 0 ||
+      passwordConfirm.length == 0)
+      {
+        setErrorMessage("Как много пустоты: не протолкнуться. Пожалуйста, заполните все поля");
+        return;
       }
-    ).then((result) => {
-      if(result.ok){
-        setErrorMessage('Вы успешно зарегистрированны');
-        setEnterButtonText("Регистрация");
+      else{
+        setErrorMessage("");
       }
-      return result.json();
-    },(error) => {
-      console.log("Ошибка", error);
-      setErrorMessage('Было весело, но что-то пошло не так (О_о)');
-      setEnterButtonText("Регистрация");
-      }
-      ).then((data) => {
-        console.log("Получаем данные promise", data.login);
-        setErrorMessage(data.login);
-        setEnterButtonText("Регистрация");
-      })
+    if(name.length < 2 || secondName.length < 2){
+      setIsNameValidError(true);
+      setValidErrorMessage("Имя и фамилия должны быть не меньше двух символов");
+      return;
     }
+    if(password.length < 5){
+      setIsPasswordValidError(true);
+      setValidErrorMessage("Пароль должен быть не меньше 5 символов");
+      return;
+    }
+    if(password != passwordConfirm){
+      setIsPasswordValidError(true);
+      setValidErrorMessage("Пароли не совпадают");
+      return;
+    }
+    else{
+      setEnterButtonText("Загрузочка");
+      setErrorMessage('');
+      fetch(
+        "https://web-interactive.herokuapp.com/register",
+        {method:'POST',
+          headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+          },
+          body:JSON.stringify({
+            firstname:name,
+            lastname:secondName,
+            login:login,
+            password:password,
+            passwordConfirm:passwordConfirm
+        }),
+        }
+      ).then((result) => {
+        if(result.ok){
+          setErrorMessage('Вы успешно зарегистрированны');
+          setEnterButtonText("Регистрация");
+        }
+        return result.json();
+      },(error) => {
+        console.log("Ошибка", error);
+        setErrorMessage('Было весело, но что-то пошло не так (О_о)');
+        setEnterButtonText("Регистрация");
+        }
+        ).then((data) => {
+          console.log("Получаем данные promise", data.login);
+          setErrorMessage(data.login);
+          setEnterButtonText("Регистрация");
+        })
+    }
+  }
 
   return (
     <div className={styles.pageLayout}>
@@ -184,8 +185,6 @@ const RegistrationWindow = () => {
             </div>}
         </label>
 
-
-
         <label className={styles.labelText}>Фамилия
           <input
             type="text"
@@ -196,8 +195,6 @@ const RegistrationWindow = () => {
           />
         </label>
         {isNameValidError && <p className={styles.errorMessage}>{validErrorMessage}</p>}
-
-
 
         <label className={styles.labelText}>
           <span className={styles.requiredField}>Login/email</span>
@@ -220,8 +217,6 @@ const RegistrationWindow = () => {
             </div>}
         </label>
         {isLoginValidError && <p className={styles.errorMessage}>{validErrorMessage}</p>}
-
-
 
         <label className={`${styles.labelText} ${styles.afterTest}`}>
           <span className={styles.requiredField}>Пароль</span>
@@ -253,12 +248,12 @@ const RegistrationWindow = () => {
             />
         </label>
 
-        {isPasswordValidError && <p className={styles.validErrorMessage}>{validErrorMessage}</p>}
+        {isPasswordValidError && <p className={styles.errorMessage}>{validErrorMessage}</p>}
         <p className={styles.errorMessage}>{errorMessage}</p>
 
         <div className={styles.enterRegistrationField}>
           <div className={styles.RomaYaNeHochuPosicionirovatbEtiKomponentbl4epe3Span}>
-            <button disabled={validationCheck()} className={styles.enterButton} >{enterButtonText}</button>
+            <button  className={styles.enterButton} >{enterButtonText}</button>
             <DefaultLink hrefLink="/auth">Вход с паролем</DefaultLink>
           </div>
           <DefaultLink hrefLink="/">Узнать о нас больше</DefaultLink>
