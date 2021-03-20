@@ -19,7 +19,6 @@ const Question = (props) => {
 };
 
 Question.propTypes = {
-  children: PropTypes.node,
   id: PropTypes.string,
   questClass: PropTypes.node,
 }

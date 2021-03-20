@@ -12,7 +12,7 @@ const RegistrationWindow = () => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setpasswordConfirm] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [enterButtonText, setEnterButtonText] = useState("Регистрация");
+  //const [enterButtonText, setEnterButtonText] = useState("Регистрация");
   const [hintMessage, setHintMessage] = useState("");
   const [isNameHintmessageSeen, setIsNameHintMessageSeen] = useState(false);
   const [isNameValidError, setIsNameValidError] = useState(false);
@@ -20,6 +20,7 @@ const RegistrationWindow = () => {
   const [isLoginValidError, setIsLoginValidError] = useState(false);
   const [isPasswordHintmessageSeen, setIsPasswordHintMessageSeen] = useState(false);
   const [isPasswordValidError, setIsPasswordValidError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [validErrorMessage, setValidErrorMessage] = useState("");
 
 
@@ -94,18 +95,17 @@ const RegistrationWindow = () => {
  function handleSubmit(e){
     e.preventDefault();
     if(name.length == 0 ||
-      secondName.length == 0 ||
       login.length == 0 ||
       password.length == 0 ||
       passwordConfirm.length == 0)
       {
-        setErrorMessage("Как много пустоты: не протолкнуться. Пожалуйста, заполните все поля");
+        setErrorMessage("Как много пустоты: не протолкнуться. Пожалуйста, заполните все поля со звездочкой");
         return;
       }
       else{
         setErrorMessage("");
       }
-    if(name.length < 2 || secondName.length < 2){
+    if(name.length < 2){
       setIsNameValidError(true);
       setValidErrorMessage("Имя и фамилия должны быть не короче двух символов");
       return;
@@ -125,7 +125,8 @@ const RegistrationWindow = () => {
       return;
     }
     else{
-      setEnterButtonText("Загрузочка");
+      //setEnterButtonText("Загрузочка");
+      setIsLoading(true);
       setErrorMessage('');
       fetch(
         "https://web-interactive.herokuapp.com/register",
@@ -144,19 +145,23 @@ const RegistrationWindow = () => {
       ).then((result) => {
         if(result.ok){
           setErrorMessage('Вы успешно зарегистрированны');
-          setEnterButtonText("Регистрация");
+          //setEnterButtonText("Регистрация");
         }
-        return result.json();
+        //else{
+          return result.json();
+        //}
       },(error) => {
-        console.log("Ошибка", error);
-        setErrorMessage('Было весело, но что-то пошло не так (О_о)');
-        setEnterButtonText("Регистрация");
+        setErrorMessage('Было весело, но что-то пошло не так (О_о) ' + error);
+        //setEnterButtonText("Регистрация");
         }
         ).then((data) => {
-          console.log("Получаем данные promise", data.login);
           setErrorMessage(data.login);
-          setEnterButtonText("Регистрация");
-        })
+          //setEnterButtonText("Регистрация");
+        }
+        ).finally(() => {
+          setIsLoading(false);
+        }
+        )
     }
   }
 
@@ -167,7 +172,8 @@ const RegistrationWindow = () => {
         <p className={styles.pleaText}>Внесите данные, необходимые для создания нового аккаунта в системе.</p>
 
 
-        <label className={styles.labelText}>Имя
+        <label className={styles.labelText}>
+        <span className={styles.requiredField}>Имя</span>
           <input
             type="text"
             onChange={handleNameChange}
@@ -255,7 +261,7 @@ const RegistrationWindow = () => {
 
         <div className={styles.enterRegistrationField}>
           <div className={styles.RomaYaNeHochuPosicionirovatbEtiKomponentbl4epe3Span}>
-            <button  className={styles.enterButton} >{enterButtonText}</button>
+            <button  className={styles.enterButton} >{ isLoading ? "Загрузка..." : "Войти" }</button>
             <DefaultLink hrefLink="/auth">Вход с паролем</DefaultLink>
           </div>
           <DefaultLink hrefLink="/">Узнать о нас больше</DefaultLink>

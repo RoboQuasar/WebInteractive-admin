@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 
 import styles from './styles.module.scss';
 import NavigationLink from 'components/NavigationLink';
+import DefaultLink from 'components/DefaultLink';
 
 const AuthWindow = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [buttonMessage, setButtonMessage] = useState("Войти");
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleEmail(e){
     console.log(e.target.value);
@@ -22,7 +23,7 @@ const AuthWindow = () => {
 
   async function handleSubmit(e){
     e.preventDefault();
-    setButtonMessage("Загрузка..");
+    setIsLoading(true);
     try{
     const response = await fetch(
       "https://web-interactive.herokuapp.com/login",
@@ -38,18 +39,17 @@ const AuthWindow = () => {
     );
 
     if(response.ok){
-      setButtonMessage("Войти");
       setErrorMessage("Успех");
     }
     else{
      let responseJson = await response.json();
-     setButtonMessage("Войти");
      setErrorMessage(responseJson.text);
     }
 
   }catch(err){
-    setButtonMessage("Войти");
     setErrorMessage("провал на уровне мировой сети, прошу винить во всем рептилойдов");
+  }finally{
+    setIsLoading(false);
   }
     }
 
@@ -72,8 +72,9 @@ const AuthWindow = () => {
         <p className={styles.errorMessage}>{errorMessage}</p>
 
         <div className={`${styles.wrapInput} ${styles.enterRegistrationField}`}>
-          <button className={styles.enterButton}>{buttonMessage}</button>
-          <NavigationLink className={styles.registration} hrefLink="/registration">Регистрация</NavigationLink>
+          <button className={styles.enterButton}>{ isLoading ? "Загрузка..." : "Войти" } </button>
+          {/* <NavigationLink className={styles.registration} hrefLink="/registration">Регистрация</NavigationLink> */}
+          <DefaultLink hrefLink="/registration">Регистрация</DefaultLink>
         </div>
 
         <NavigationLink className={styles.reg} hrefLink="/">Узнать о нас больше</NavigationLink>
