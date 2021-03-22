@@ -8,7 +8,7 @@ const Question = (props) => {
   return (
     <div className={styles.questionField}>
     <QuestionMark className={`${styles.question} ${props.questClass}`} id={props.id}/>
-
+    <div className={styles.arrowLeft}/>
     <p className={styles.questionText}>{props.hintMessage}</p>
   </div>
   );
