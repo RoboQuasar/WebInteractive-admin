@@ -1,11 +1,31 @@
 @import "../../styles/css-vars.scss";
 
-
+.questionText{
+  position: absolute;
+  font-weight: bold;
+  font-size: 12px;
+  width: 200px;
+  line-height: 14px;
+  left: calc(100% + 20px) ;
+  top: -10px;
+  display: none;
+}
+ .questionField{
+  position: absolute;
+  top: 10px;
+  vertical-align: top;
+  &:hover .questionText {
+    display: block;
+    color: red;
+  }
+}
 
 .question {
-  //position:absolute;
-  //right: -25px;
+  position:absolute;
   padding: 2px;
   border: 2px var(--cornflowerBlue) solid;
   border-radius: 50%;
- }
+
+  }
+
+

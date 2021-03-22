@@ -12,13 +12,8 @@ const RegistrationWindow = () => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setpasswordConfirm] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  //const [enterButtonText, setEnterButtonText] = useState("Регистрация");
-  const [hintMessage, setHintMessage] = useState("");
-  const [isNameHintmessageSeen, setIsNameHintMessageSeen] = useState(false);
   const [isNameValidError, setIsNameValidError] = useState(false);
-  const [isLoginHintmessageSeen, setIsLoginHintMessageSeen] = useState(false);
   const [isLoginValidError, setIsLoginValidError] = useState(false);
-  const [isPasswordHintmessageSeen, setIsPasswordHintMessageSeen] = useState(false);
   const [isPasswordValidError, setIsPasswordValidError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [validErrorMessage, setValidErrorMessage] = useState("");
@@ -71,27 +66,6 @@ const RegistrationWindow = () => {
     setIsPasswordValidError(false);
   }
 
-  function handleMouseHoverNameHint(){
-    setIsNameHintMessageSeen(true);
-    setHintMessage("Имя и Фамилия должны быть написанны русскими или латинскими букоФФками без пробелов и знаков");
-  }
-
-  function handleMouseHoverLoginHint(){
-    setHintMessage("Введите логин или email. Если логин или email занЕты, введите другой логин или email!");
-    setIsLoginHintMessageSeen(true);
-  }
-
-  function handleMouseHoverPasswordHint(){
-    setIsPasswordHintMessageSeen(true);
-    setHintMessage("Постарайтесь ввести максимально сложный пароль! Не давайте этот пароль бабушке, брату, лучшему другу или домашнему питомцу. В этом мире никому нельзя доверять =(");
-  }
-
-  function handleMouseLeave(){
-    setIsNameHintMessageSeen(false);
-    setIsLoginHintMessageSeen(false);
-    setIsPasswordHintMessageSeen(false);
-  }
-
  function handleSubmit(e){
     e.preventDefault();
     if(name.length == 0 ||
@@ -125,7 +99,6 @@ const RegistrationWindow = () => {
       return;
     }
     else{
-      //setEnterButtonText("Загрузочка");
       setIsLoading(true);
       setErrorMessage('');
       fetch(
@@ -145,18 +118,15 @@ const RegistrationWindow = () => {
       ).then((result) => {
         if(result.ok){
           setErrorMessage('Вы успешно зарегистрированны');
-          //setEnterButtonText("Регистрация");
         }
         //else{
           return result.json();
         //}
       },(error) => {
         setErrorMessage('Было весело, но что-то пошло не так (О_о) ' + error);
-        //setEnterButtonText("Регистрация");
         }
         ).then((data) => {
           setErrorMessage(data.login);
-          //setEnterButtonText("Регистрация");
         }
         ).finally(() => {
           setIsLoading(false);
@@ -181,16 +151,12 @@ const RegistrationWindow = () => {
             className={styles.inputField}
             maxLength="20"
           />
-          <div
-            className={styles.questionField}
-            onMouseEnter={handleMouseHoverNameHint}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Question questClass={styles.hint}/>
-          </div>
-            {isNameHintmessageSeen && <div className={styles.questionTextField}>
-              <p className={styles.questionText}>{hintMessage}</p>
-            </div>}
+
+            <Question
+              questClass={styles.hint}
+              hintMessage={"Имя и Фамилия должны быть написанны русскими или латинскими букоФФками без пробелов и знаков."}
+            />
+
         </label>
 
         <label className={styles.labelText}>Фамилия
@@ -213,16 +179,13 @@ const RegistrationWindow = () => {
             className={styles.inputField}
             maxLength="20"
           />
-          <div
-            className={styles.questionField}
-            onMouseEnter={handleMouseHoverLoginHint}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Question questClass={styles.hint} />
-          </div>
-            {isLoginHintmessageSeen&&<div className={styles.questionTextField}>
-              <p className={styles.questionText}>{hintMessage}</p>
-            </div>}
+
+            <Question
+              questClass={styles.hint}
+              hintMessage={"Введите логин или email. Если логин или email занЕты, введите другой логин или email!"}
+            />
+
+
         </label>
         {isLoginValidError && <p className={styles.errorMessage}>{validErrorMessage}</p>}
 
@@ -234,16 +197,13 @@ const RegistrationWindow = () => {
             className={`${styles.inputField} ${styles.requiredField}`}
             maxLength="50"
           />
-          <div
-            className={styles.questionField}
-            onMouseEnter={handleMouseHoverPasswordHint}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Question questClass={styles.hint}/>
-          </div>
-            {isPasswordHintmessageSeen && <div className={styles.questionTextField}>
-              <p className={styles.questionText}>{hintMessage}</p>
-            </div>}
+
+            <Question
+              questClass={styles.hint}
+              hintMessage={"Постарайтесь ввести максимально сложный пароль! Не давайте этот пароль бабушке, брату, лучшему другу или домашнему питомцу. В этом мире никому нельзя доверять =("}
+            />
+
+
         </label>
 
         <label className={styles.labelText}>

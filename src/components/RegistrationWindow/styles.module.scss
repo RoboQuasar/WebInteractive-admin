@@ -36,7 +36,6 @@
   }
 
   .labelText{
-    //height: inherit;
     position: relative;
     display: flex;
     justify-content: flex-end;
@@ -49,43 +48,11 @@
     line-height: 23px;
   }
 
-  // .afterTest::after{
-  //   content: "?";
-  //   width: 20px;
-  //   height: 20px;
-  //   text-align: center;
-  //   //padding: 2px;
-  //   border: 2px var(--cornflowerBlue) solid;
-  //   border-radius: 50%;
-  //   //top: -2px;
-  //   right: -30px;
-  //   position: absolute;
-  // }
-
-  //Оставлю это как пример мыслей(
-  // .afterTest:hover::after{
-  //   content: "Ебать я кроссаФФчеГ";
-  //   border: 2px red solid;
-  // }
-  // .hint:hover::after{
-  //   display: block;
-  //   content: "Ебать я красавчик!!!";
-  //   border: red;
-  // }
   .questionField{
     position: absolute;
     right: -25px;
     height: 18px;
     width: 18px;
-  }
-
-  .questionTextField{
-    position: absolute;
-    right: -230px;
-    top: -7px;
-    height: 200px;
-    width: 200px;
-    vertical-align: top;
   }
 
   .questionText{
