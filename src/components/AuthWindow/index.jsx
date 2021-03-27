@@ -12,12 +12,10 @@ const AuthWindow = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   function handleEmail(e){
-    console.log(e.target.value);
     setLogin(e.target.value);
   }
 
   function handlePassword(e){
-    console.log(e.target.value);
     setPassword(e.target.value);
   }
 
@@ -72,8 +70,7 @@ const AuthWindow = () => {
         <p className={styles.errorMessage}>{errorMessage}</p>
 
         <div className={`${styles.wrapInput} ${styles.enterRegistrationField}`}>
-          <button className={styles.enterButton}>{ isLoading ? "Загрузка..." : "Войти" } </button>
-          {/* <NavigationLink className={styles.registration} hrefLink="/registration">Регистрация</NavigationLink> */}
+          <button disabled={(login.length >= 2 && password.length >=5) ? false : true} className={styles.enterButton}>{ isLoading ? "Загрузка..." : "Войти" } </button>
           <DefaultLink hrefLink="/registration">Регистрация</DefaultLink>
         </div>
 

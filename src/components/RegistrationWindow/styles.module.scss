@@ -135,6 +135,11 @@
         font-size: 20px;
         line-height: 23px;
         color: #FFFBFB;
+        border: transparent solid 1px;          ;
+        cursor: pointer;
+          &:hover{
+            border: black solid 1px;
+          }
     }
 
     & .enterButton:disabled{

@@ -84,6 +84,11 @@ const RegistrationWindow = () => {
       setValidErrorMessage("Имя и фамилия должны быть не короче двух символов");
       return;
     }
+    if(secondName.length != 0 && secondName.length < 2){
+      setIsNameValidError(true);
+      setValidErrorMessage("Имя и фамилия должны быть не короче двух символов");
+      return;
+    }
     if(login.length < 2){
       setIsLoginValidError(true);
       setValidErrorMessage("Поле логина должно быть не короче двух символов");
@@ -119,14 +124,16 @@ const RegistrationWindow = () => {
         if(result.ok){
           setErrorMessage('Вы успешно зарегистрированны');
         }
-        //else{
+        else{
           return result.json();
-        //}
+        }
       },(error) => {
         setErrorMessage('Было весело, но что-то пошло не так (О_о) ' + error);
         }
         ).then((data) => {
+          if(data){
           setErrorMessage(data.login);
+          }
         }
         ).finally(() => {
           setIsLoading(false);
@@ -202,8 +209,6 @@ const RegistrationWindow = () => {
               questClass={styles.hint}
               hintMessage={"Постарайтесь ввести максимально сложный пароль! Не давайте этот пароль бабушке, брату, лучшему другу или домашнему питомцу. В этом мире никому нельзя доверять =("}
             />
-
-
         </label>
 
         <label className={styles.labelText}>
@@ -221,7 +226,7 @@ const RegistrationWindow = () => {
 
         <div className={styles.enterRegistrationField}>
           <div className={styles.RomaYaNeHochuPosicionirovatbEtiKomponentbl4epe3Span}>
-            <button  className={styles.enterButton} >{ isLoading ? "Загрузка..." : "Войти" }</button>
+            <button  className={styles.enterButton} >{ isLoading ? "Загрузка..." : "Регистрация" }</button>
             <DefaultLink hrefLink="/auth">Вход с паролем</DefaultLink>
           </div>
           <DefaultLink hrefLink="/">Узнать о нас больше</DefaultLink>
