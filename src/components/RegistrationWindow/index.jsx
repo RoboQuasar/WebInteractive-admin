@@ -151,7 +151,6 @@ const RegistrationWindow = () => {
             },
             body: JSON.stringify({
               firstname: name,
-             // lastname: secondName,
               login: login,
               password: password,
               passwordConfirm: passwordConfirm
