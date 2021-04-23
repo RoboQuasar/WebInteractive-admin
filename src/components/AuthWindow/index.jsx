@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
 
 import styles from './styles.module.scss';
 import NavigationLink from 'components/NavigationLink';
 import DefaultLink from 'components/DefaultLink';
 
+
 const AuthWindow = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isRedirect, setIsRedirect] = useState(false);
 
   function handleEmail(e) {
     setLogin(e.target.value);
@@ -39,7 +42,7 @@ const AuthWindow = () => {
       );
 
       if (response.ok) {
-        setErrorMessage("Успех");
+        setIsRedirect(true);
       }
       else {
         let responseJson = await response.json();
@@ -77,6 +80,7 @@ const AuthWindow = () => {
         </div>
 
         <NavigationLink className={styles.reg} hrefLink="/">Узнать о нас больше</NavigationLink>
+        {isRedirect && <Redirect to="/main" />}
       </form>
     </div>
 

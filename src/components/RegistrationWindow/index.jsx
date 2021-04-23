@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
 import DefaultLink from 'components/DefaultLink';
 import Question from 'components/Question';
+
 
 import styles from './styles.module.scss';
 
@@ -17,6 +19,7 @@ const RegistrationWindow = () => {
   const [isPasswordValidError, setIsPasswordValidError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [validErrorMessage, setValidErrorMessage] = useState("");
+  const [isRedirect, setIsRedirect] = useState(false);
 
 
   function capitalizeFirstLetter(string) {
@@ -123,7 +126,7 @@ const RegistrationWindow = () => {
           }
         ).then((result) => {
           if (result.ok) {
-            setErrorMessage('Вы успешно зарегистрированны');
+            setIsRedirect(true);
           }
           else {
             return result.json();
@@ -158,7 +161,7 @@ const RegistrationWindow = () => {
           }
         ).then((result) => {
           if (result.ok) {
-            setErrorMessage('Вы успешно зарегистрированны');
+            setIsRedirect(true);
           }
           else {
             return result.json();
@@ -270,6 +273,7 @@ return (
         <DefaultLink hrefLink="/">Узнать о нас больше</DefaultLink>
       </div>
     </form>
+    {isRedirect && <Redirect to="/auth" />}
   </div>
 );
 };

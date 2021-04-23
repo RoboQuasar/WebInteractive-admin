@@ -17,6 +17,7 @@ class RightMainBar extends React.Component {
           'Content-Type': 'application/json;charset=utf-8',
         },
         credentials: 'include',
+
       }
     ).then((result) => {
       if (result.ok) {

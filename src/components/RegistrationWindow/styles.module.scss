@@ -137,9 +137,9 @@
         color: #FFFBFB;
         border: transparent solid 1px;          ;
         cursor: pointer;
-          &:hover{
+        &:hover{
             border: black solid 1px;
-          }
+        }
     }
 
     & .enterButton:disabled{
