@@ -146,6 +146,10 @@
       background: gray;
     }
 
+    & .enterButton:disabled{
+      background: gray;
+    }
+
     & .enterWithPassLink{
         width: 171px;
         height: 36px;
