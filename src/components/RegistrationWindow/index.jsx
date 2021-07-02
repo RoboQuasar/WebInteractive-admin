@@ -110,7 +110,7 @@ const RegistrationWindow = () => {
       setErrorMessage('');
       if (secondName.length != 0) {
         fetch(
-          "https://web-interactive.herokuapp.com/register",
+          "http://localhost:5000/register",
           {
             method: 'POST',
             headers: {
@@ -146,7 +146,7 @@ const RegistrationWindow = () => {
       }
       if (secondName.length == 0) {
         fetch(
-          "https://web-interactive.herokuapp.com/register",
+          "http://localhost:5000/register",
           {
             method: 'POST',
             headers: {

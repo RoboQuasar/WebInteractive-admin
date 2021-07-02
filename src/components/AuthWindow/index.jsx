@@ -27,7 +27,7 @@ const AuthWindow = () => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        "https://web-interactive.herokuapp.com/login",
+        "http://localhost:5000/login",
         {
           method: 'POST',
           headers: {
