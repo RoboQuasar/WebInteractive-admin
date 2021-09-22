@@ -10,7 +10,7 @@ class RightMainBar extends React.Component {
 
   componentDidMount(){
     fetch(
-      "https://web-interactive.herokuapp.com/user-info",
+      "http://localhost:5000/user-info",
       {
         method: "GET",
         headers: {
