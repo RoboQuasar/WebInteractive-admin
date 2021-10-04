@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
 
@@ -6,13 +6,16 @@ import styles from './styles.module.scss';
 import NavigationLink from 'components/NavigationLink';
 import DefaultLink from 'components/DefaultLink';
 
+ import UserLoginInfoContext from 'react_context/UserLoginInfoContext';
+
 
 const AuthWindow = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isRedirect, setIsRedirect] = useState(false);
+
+  const [isLogged, setIsLogged] = useContext(UserLoginInfoContext);
 
   function handleEmail(e) {
     setLogin(e.target.value);
@@ -42,7 +45,7 @@ const AuthWindow = () => {
       );
 
       if (response.ok) {
-        setIsRedirect(true);
+        setIsLogged(true);
       }
       else {
         let responseJson = await response.json();
@@ -58,31 +61,32 @@ const AuthWindow = () => {
 
 
   return (
-    <div className={styles.pageLayout}>
-      <form className={styles.authWindow} onSubmit={handleSubmit}>
-        <h2 className={styles.greetingText}>Добро пожаловать<br />в систему оживления сайтов!</h2>
 
-        <div className={styles.wrapInput}>
-          <label htmlFor="emailField" className={styles.labelText}>Логин</label>
-          <input id="emailField" type="text" className={styles.inputField} onChange={handleEmail} />
-        </div>
+      <div className={styles.pageLayout}>
+        <form className={styles.authWindow} onSubmit={handleSubmit}>
+          <h2 className={styles.greetingText}>Добро пожаловать<br />в систему оживления сайтов!</h2>
 
-        <div className={styles.wrapInput}>
-          <label htmlFor="passwordField" className={styles.labelText}>Пароль</label>
-          <input id="passwordField" type="password" className={styles.inputField} onChange={handlePassword} />
-        </div>
+          <div className={styles.wrapInput}>
+            <label htmlFor="emailField" className={styles.labelText}>Логин</label>
+            <input id="emailField" type="text" className={styles.inputField} onChange={handleEmail} />
+          </div>
 
-        <p className={styles.errorMessage}>{errorMessage}</p>
+          <div className={styles.wrapInput}>
+            <label htmlFor="passwordField" className={styles.labelText}>Пароль</label>
+            <input id="passwordField" type="password" className={styles.inputField} onChange={handlePassword} />
+          </div>
 
-        <div className={`${styles.wrapInput} ${styles.enterRegistrationField}`}>
-          <button disabled={(login.length >= 2 && password.length >= 5) ? false : true} className={styles.enterButton}>{isLoading ? "Загрузка..." : "Войти"} </button>
-          <DefaultLink hrefLink="/registration">Регистрация</DefaultLink>
-        </div>
+          <p className={styles.errorMessage}>{errorMessage}</p>
 
-        <NavigationLink className={styles.reg} hrefLink="/">Узнать о нас больше</NavigationLink>
-        {isRedirect && <Redirect to="/main" />}
-      </form>
-    </div>
+          <div className={`${styles.wrapInput} ${styles.enterRegistrationField}`}>
+            <button disabled={(login.length >= 2 && password.length >= 5) ? false : true} className={styles.enterButton}>{isLoading ? "Загрузка..." : "Войти"} </button>
+            <DefaultLink hrefLink="/registration">Регистрация</DefaultLink>
+          </div>
+
+          <NavigationLink className={styles.reg} hrefLink="/">Узнать о нас больше</NavigationLink>
+          {isLogged && <Redirect to="/main" />}
+        </form>
+      </div>
 
   );
 };

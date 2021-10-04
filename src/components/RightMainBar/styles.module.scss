@@ -69,4 +69,21 @@
       background-color: var(--melrose);
     }
     }
+
+    .exitButton{
+      width: 100%;
+      border: none;
+      text-decoration: none;
+      text-align: center;
+      box-sizing: border-box;
+      padding: 15px;
+      line-height: 25px;
+      font-family: Roboto;
+      font-weight: bold;
+      font-size: 20px;
+      background-color: var(--periwinkle);
+      &:hover{
+        background-color: var(--melrose);
+      }
+    }
 }
