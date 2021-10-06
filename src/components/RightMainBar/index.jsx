@@ -5,8 +5,17 @@ import styles from './styles.module.scss';
 
 import NavigationLink from 'components/NavigationLink';
 import avatar from '../../images/Avatar.jpg'
+import ExitButton from 'components/ExitButton/ExitButton';
 
 class RightMainBar extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      userInfo: []
+    };
+
+    // this.exitClick = this.exitClick.bind(this);
+  }
 
   componentDidMount(){
     fetch(
@@ -19,14 +28,19 @@ class RightMainBar extends React.Component {
         credentials: 'include',
 
       }
-    ).then((result) => {
-      if (result.ok) {
-        console.log("Все прошло успешно");
-      }
-      else {
-        console.log("результат не получен");
-        return result.json();
-      }
+    ).then(res => res.json())
+    .then((result) => {
+      // if (result.ok) {
+        // console.log(result.json());
+        console.log(result.firstname);
+        this.setState({
+          userInfo:result
+        })
+      // }
+      // else {
+      //   console.log("результат не получен");
+      //   return result.json();
+      // }
     }, (error) => {
       console.log("все пропало!" + error);
     }
@@ -45,6 +59,8 @@ class RightMainBar extends React.Component {
 
 
   render() {
+    const { userInfo } = this.state;
+
     return (
       <ul className={styles.loginBarList}>
         <li className={styles.avatarList}>
@@ -52,11 +68,11 @@ class RightMainBar extends React.Component {
         </li>
 
         <li className={styles.name}>
-          Имя
+          {userInfo.firstname}
       </li>
 
         <li className={styles.secondName}>
-          Фамилия
+          {userInfo.lastname}
       </li>
 
         <li className={styles.rate}>
@@ -74,9 +90,10 @@ class RightMainBar extends React.Component {
         </li>
 
         <li>
-          <NavigationLink className={styles.rightMainLink} hrefLink="/">
+          {/* <NavigationLink className={styles.rightMainLink}  hrefLink="/auth">
             Выйти
-        </NavigationLink>
+          </NavigationLink> */}
+          <ExitButton className = {styles.exitButton} onClick = {this.exitClick}>Выйти</ExitButton>
         </li>
       </ul>
     );

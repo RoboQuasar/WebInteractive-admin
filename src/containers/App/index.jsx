@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
 } from "react-router-dom";
 
 import AuthPage from 'pages/AuthPage';
@@ -17,13 +17,18 @@ import ModelsPage from "pages/ModelsPage";
 import RegistrationPage from "pages/RegistrationPage"
 
 import styles from './styles.module.scss';
-
+import UserLoginInfoContext from "react_context/UserLoginInfoContext";
+// import {userLoginInfo} from "../../react_context/UserLoginInfoContext"
 
 
 
 function App() {
+
+  const [isLogged, setIsLogged] = useState(false);
+
   return (
     <main className={styles.main}>
+      <UserLoginInfoContext.Provider value = {[isLogged, setIsLogged]}>
       <Router>
         <Switch>
           <Route exact path="/auth">
@@ -68,6 +73,7 @@ function App() {
 
         </Switch>
       </Router>
+      </UserLoginInfoContext.Provider>
     </main>
   );
 }

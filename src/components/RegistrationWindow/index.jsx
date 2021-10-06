@@ -204,7 +204,6 @@ return (
           questClass={styles.hint}
           hintMessage={"Имя и Фамилия должны быть написанны русскими или латинскими букоФФками без пробелов и знаков."}
         />
-
       </label>
 
       <label className={styles.labelText}>Фамилия
